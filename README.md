@@ -1,0 +1,1 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/3786a4a2616e4ac6b311e4229fc919ae)](https://www.codacy.com/gh/vapoyan/search/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=vapoyan/search&amp;utm_campaign=Badge_Grade)
