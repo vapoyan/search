@@ -4,12 +4,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/search_navigation_graph"
-    app:startDestination="@id/destination_search_fragment">
+    app:startDestination="@id/destination_home_fragment">
+
+    <fragment
+        android:id="@+id/destination_home_fragment"
+        android:name="app.coinfo.feature.search.presentation.home.HomeFragment"
+        android:label="@string/search_label_destination_home_fragment"
+        tools:layout="@layout/search_fragment_home">
+
+        <action
+            android:id="@+id/to_destination_search_fragment"
+            app:destination="@id/destination_search_fragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/destination_search_fragment"
-        android:name="app.coinfo.feature.search.presentation.SearchFragment"
+        android:name="app.coinfo.feature.search.presentation.search.SearchFragment"
         android:label="@string/search_label_destination_search_fragment"
-        tools:layout="@layout/search_fragment_home" />
+        tools:layout="@layout/search_fragment_search" />
 
 </navigation>

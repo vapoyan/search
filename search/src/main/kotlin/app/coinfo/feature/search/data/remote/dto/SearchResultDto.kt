@@ -1,6 +1,6 @@
 package app.coinfo.feature.search.data.remote.dto
 
-internal data class SearchDto(
+internal data class SearchResultDto(
     val categories: List<CategoryDto>,
     val coins: List<CoinDto>,
     val exchanges: List<ExchangeDto>,

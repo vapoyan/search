@@ -1,6 +1,6 @@
 package app.coinfo.feature.search.domain.model
 
-internal data class CoinUI(
+internal data class Coin(
     val id: String,
     val large: String,
     val marketCapRank: Int,
