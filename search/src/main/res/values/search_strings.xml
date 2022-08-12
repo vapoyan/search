@@ -1,4 +1,5 @@
 <resources>
+    <string name="search_label_search">Search</string>
     <string name="search_label_destination_home_fragment">Search</string>
     <string name="search_label_destination_search_fragment">Search</string>
 </resources>

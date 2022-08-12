@@ -22,14 +22,16 @@ internal class HomeFragment : Fragment(R.layout.search_fragment_home) {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        setupObservers()
+        setupToolbar()
     }
 
-    private fun setupObservers() {
-        viewModel.backClickEvent.observe(viewLifecycleOwner) {
-        }
-        viewModel.searchClickEvent.observe(viewLifecycleOwner) {
-            findNavController().navigate(R.id.destination_search_fragment)
+    private fun setupToolbar() {
+        binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+        binding.toolbar.setOnMenuItemClickListener { menuItem ->
+            if (menuItem.itemId == R.id.action_search) {
+                findNavController().navigate(R.id.destination_search_fragment)
+            }
+            false
         }
     }
 }

@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.coinfo.feature.search.common.Resource
-import app.coinfo.feature.search.common.SingleLiveEvent
 import app.coinfo.feature.search.domain.model.SearchResult
 import app.coinfo.feature.search.domain.usecase.SearchUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,9 +16,6 @@ import javax.inject.Inject
 internal class HomeViewModel @Inject constructor(
     private val searchUseCase: SearchUseCase
 ) : ViewModel() {
-
-    val searchClickEvent = SingleLiveEvent<Unit>()
-    val backClickEvent = SingleLiveEvent<Unit>()
 
     private val _state = MutableLiveData<HomeState>()
     val state: LiveData<HomeState> = _state
@@ -40,13 +36,5 @@ internal class HomeViewModel @Inject constructor(
                 }
             }
         }.launchIn(viewModelScope)
-    }
-
-    fun onSearchClicked() {
-        searchClickEvent.call()
-    }
-
-    fun onBackClicked() {
-        backClickEvent.call()
     }
 }

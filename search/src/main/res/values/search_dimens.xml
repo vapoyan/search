@@ -2,4 +2,6 @@
 
 <resources>
     <dimen name="search_margin_default">16dp</dimen>
+    <dimen name="search_margin_l">24dp</dimen>
+    <dimen name="search_margin_xl">32dp</dimen>
 </resources>
