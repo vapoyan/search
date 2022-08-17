@@ -1,13 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda sdasDas da das dsa sda dsa dsa dsa sda sda sda sda sda sda  sda sda sda sdasda "/>
+        android:layout_height="match_parent">
 
-</androidx.core.widget.NestedScrollView>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/search_padding_default">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/label_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/search_margin_default"
+                android:text="Search"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/label_top_trending_coins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/search_margin_default"
+                android:text="Today's Top Movers"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_top_trending_coins"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/search_margin_s"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/label_recently_viewed_coins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/search_margin_default"
+                android:text="Recently Viewed"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_recently_viewed_coins"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/search_margin_s"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

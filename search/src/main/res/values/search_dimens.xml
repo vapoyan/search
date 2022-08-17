@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+    <dimen name="search_margin_s">8dp</dimen>
     <dimen name="search_margin_default">16dp</dimen>
     <dimen name="search_margin_l">24dp</dimen>
     <dimen name="search_margin_xl">32dp</dimen>
+
+    <dimen name="search_padding_s">8dp</dimen>
+    <dimen name="search_padding_default">16dp</dimen>
+    <dimen name="search_padding_l">24dp</dimen>
+    <dimen name="search_padding_xl">32dp</dimen>
 </resources>

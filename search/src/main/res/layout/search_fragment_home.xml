@@ -15,15 +15,6 @@
         android:layout_height="match_parent"
         tools:context=".presentation.home.HomeFragment">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/label_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/search_margin_default"
-            android:layout_marginTop="@dimen/search_margin_default"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-            android:text="Search" />
-
         <include layout="@layout/search_fragment_home_content" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
