@@ -16,27 +16,20 @@
         android:layout_height="match_parent"
         tools:context=".presentation.home.HomeFragment">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?android:attr/colorBackground"
-                android:minHeight="?attr/actionBarSize"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:navigationIcon="@drawable/search_ic_close"
-                app:menu="@menu/search"
-                app:title="@string/search_label_search"
-                app:titleCentered="false">
-
-            </com.google.android.material.appbar.MaterialToolbar>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
         <include layout="@layout/search_fragment_home_content" />
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/colorBackground"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_gravity="bottom"
+            app:hideOnScroll="true"
+            app:navigationIcon="@drawable/search_ic_close"
+            app:menu="@menu/search"
+            app:title="@string/search_label_search"
+            app:titleCentered="false"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
