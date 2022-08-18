@@ -15,7 +15,10 @@
         android:layout_height="match_parent"
         tools:context=".presentation.home.HomeFragment">
 
-        <include layout="@layout/search_fragment_home_content" />
+        <include
+            android:id="@+id/include_search_fragment_home_content"
+            layout="@layout/search_fragment_home_content"
+            app:contentViewModel="@{viewModel}" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/toolbar"

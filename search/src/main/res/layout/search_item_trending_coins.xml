@@ -4,10 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +13,7 @@
             android:id="@+id/image_view_trending_coin_logo"
             android:layout_width="@dimen/search_size_trending_coin_logo_width"
             android:layout_height="@dimen/search_size_trending_coin_logo_height"
-            app:layout_constraintBottom_toTopOf="@+id/text_view_trending_coin_code"
+            app:layout_constraintBottom_toTopOf="@+id/text_view_trending_coin_symbol"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,10 +23,11 @@
             tools:srcCompat="@sample/coins" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/text_view_trending_coin_code"
+            android:id="@+id/text_view_trending_coin_symbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toTopOf="@+id/text_view_trending_coin_percentage_change"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +42,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_trending_coin_code"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_trending_coin_symbol"
             tools:text="@sample/coins.json/coins/percentages/percentage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
