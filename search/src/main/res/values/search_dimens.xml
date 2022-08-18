@@ -10,4 +10,7 @@
     <dimen name="search_padding_default">16dp</dimen>
     <dimen name="search_padding_l">24dp</dimen>
     <dimen name="search_padding_xl">32dp</dimen>
+
+    <dimen name="search_size_trending_coin_logo_width">46dp</dimen>
+    <dimen name="search_size_trending_coin_logo_height">46dp</dimen>
 </resources>

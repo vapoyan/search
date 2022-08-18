@@ -1,0 +1,67 @@
+{
+  "comment": "Sample data used for coins",
+  "coins": [
+    {
+      "names": [
+        {
+          "name": "Bitcoin"
+        },
+        {
+          "name": "Ethereum"
+        },
+        {
+          "name": "Ripple"
+        },
+        {
+          "name": "USD Coin"
+        },
+        {
+          "name": "BNB"
+        },
+        {
+          "name": "YamVardaman Ethereum Network Token"
+        }
+      ],
+      "codes": [
+        {
+          "code": "BTC"
+        },
+        {
+          "code": "ETH"
+        },
+        {
+          "code": "XRP"
+        },
+        {
+          "code": "USDC"
+        },
+        {
+          "code": "BNB"
+        },
+        {
+          "code": "FET"
+        }
+      ],
+      "percentages": [
+        {
+          "percentage": "7%"
+        },
+        {
+          "percentage": "15.4%"
+        },
+        {
+          "percentage": "6%"
+        },
+        {
+          "percentage": "1.5%"
+        },
+        {
+          "percentage": "26%"
+        },
+        {
+          "percentage": "1895%"
+        }
+      ]
+    }
+  ]
+}
