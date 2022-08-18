@@ -39,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/search_margin_s"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="4"
+                app:spanCount="@integer/search_grid_columns"
                 tools:itemCount="8"
                 tools:listitem="@layout/search_item_trending_coins" />
 
