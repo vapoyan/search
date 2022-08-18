@@ -7,24 +7,28 @@ import app.coinfo.feature.search.presentation.home.adapter.TrendingCoinUI
 import app.coinfo.feature.search.presentation.home.adapter.TrendingCoinsAdapter
 import com.bumptech.glide.Glide
 
+object Bindings {
 
-@BindingAdapter("trendingCoins")
-fun bindTrendingCoins(recyclerView: RecyclerView, coins: List<TrendingCoinUI>) {
-    val adapter = getOrCreateAdapter(recyclerView)
-    adapter.submitList(coins)
-}
+    @JvmStatic
+    @BindingAdapter("trendingCoins")
+    fun bindTrendingCoins(recyclerView: RecyclerView, coins: List<TrendingCoinUI>) {
+        val adapter = getOrCreateAdapter(recyclerView)
+        adapter.submitList(coins)
+    }
 
-@BindingAdapter("glideImage")
-fun bingImage(imageView: ImageView, url: String) {
-    Glide.with(imageView).load(url).into(imageView)
-}
+    @JvmStatic
+    @BindingAdapter("glideImage")
+    fun bingImage(imageView: ImageView, url: String) {
+        Glide.with(imageView).load(url).into(imageView)
+    }
 
-private fun getOrCreateAdapter(recyclerView: RecyclerView): TrendingCoinsAdapter {
-    return if (recyclerView.adapter != null && recyclerView.adapter is TrendingCoinsAdapter) {
-        recyclerView.adapter as TrendingCoinsAdapter
-    } else {
-        val bindableRecyclerAdapter = TrendingCoinsAdapter()
-        recyclerView.adapter = bindableRecyclerAdapter
-        bindableRecyclerAdapter
+    private fun getOrCreateAdapter(recyclerView: RecyclerView): TrendingCoinsAdapter {
+        return if (recyclerView.adapter != null && recyclerView.adapter is TrendingCoinsAdapter) {
+            recyclerView.adapter as TrendingCoinsAdapter
+        } else {
+            val bindableRecyclerAdapter = TrendingCoinsAdapter()
+            recyclerView.adapter = bindableRecyclerAdapter
+            bindableRecyclerAdapter
+        }
     }
 }
