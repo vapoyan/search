@@ -1,4 +1,4 @@
-package app.coinfo.feature.search.presentation.home
+package app.coinfo.feature.search.presentation.feature.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

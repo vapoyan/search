@@ -8,7 +8,6 @@ import app.coinfo.feature.search.domain.model.SearchCoin
 import app.coinfo.feature.search.domain.model.SearchResult
 import app.coinfo.feature.search.domain.model.TrendingCoin
 import app.coinfo.feature.search.domain.model.TrendingResult
-import app.coinfo.feature.search.presentation.home.adapter.TrendingCoinUI
 
 internal object Mappers {
 
@@ -19,17 +18,6 @@ internal object Mappers {
     fun TrendingResultDto.toTrendingResult() = TrendingResult(
         coins = coins.map { it.toTrendingCoin() }
     )
-
-    @JvmStatic
-    fun TrendingResult?.toTrendingCoinsUI() =
-        this?.coins?.map {
-            TrendingCoinUI(
-                id = it.id,
-                symbol = it.symbol,
-                thumbnailUrl = it.large
-            )
-        } ?: emptyList()
-
 
     private fun CoinDto.toSearchCoin() = SearchCoin(
         id = id,

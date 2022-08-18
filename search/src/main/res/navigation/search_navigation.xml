@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/destination_home_fragment"
-        android:name="app.coinfo.feature.search.presentation.home.HomeFragment"
+        android:name="app.coinfo.feature.search.presentation.feature.home.HomeFragment"
         android:label="@string/search_label_destination_home_fragment"
         tools:layout="@layout/search_fragment_home">
 
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/destination_search_fragment"
-        android:name="app.coinfo.feature.search.presentation.search.SearchFragment"
+        android:name="app.coinfo.feature.search.presentation.feature.search.SearchFragment"
         android:label="@string/search_label_destination_search_fragment"
         tools:layout="@layout/search_fragment_search" />
 

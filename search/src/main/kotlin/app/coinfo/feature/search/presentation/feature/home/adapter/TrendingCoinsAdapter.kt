@@ -1,4 +1,4 @@
-package app.coinfo.feature.search.presentation.home.adapter
+package app.coinfo.feature.search.presentation.feature.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import app.coinfo.feature.search.databinding.SearchItemTrendingCoinsBinding
+import app.coinfo.feature.search.presentation.model.TrendingCoinUI
 import com.bumptech.glide.Glide
 
 class TrendingCoinsAdapter :

@@ -1,4 +1,4 @@
-package app.coinfo.feature.search.presentation.search
+package app.coinfo.feature.search.presentation.feature.search
 
 import app.coinfo.feature.search.domain.model.SearchResult
 

@@ -1,4 +1,4 @@
-package app.coinfo.feature.search.presentation.home
+package app.coinfo.feature.search.presentation.feature.search
 
 import android.os.Bundle
 import android.view.View
@@ -6,15 +6,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import app.coinfo.feature.search.R
-import app.coinfo.feature.search.databinding.SearchFragmentHomeBinding
+import app.coinfo.feature.search.databinding.SearchFragmentSearchBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-internal class HomeFragment : Fragment(R.layout.search_fragment_home) {
+class SearchFragment : Fragment(R.layout.search_fragment_search) {
 
-    private val binding: SearchFragmentHomeBinding by viewBinding(SearchFragmentHomeBinding::bind)
-    private val viewModel: HomeViewModel by viewModels()
+    private val binding: SearchFragmentSearchBinding by viewBinding(SearchFragmentSearchBinding::bind)
+    private val viewModel: SearchViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,11 +27,5 @@ internal class HomeFragment : Fragment(R.layout.search_fragment_home) {
 
     private fun setupToolbar() {
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
-        binding.toolbar.setOnMenuItemClickListener { menuItem ->
-            if (menuItem.itemId == R.id.action_search) {
-                findNavController().navigate(R.id.destination_search_fragment)
-            }
-            false
-        }
     }
 }

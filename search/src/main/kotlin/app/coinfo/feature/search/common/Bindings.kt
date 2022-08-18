@@ -3,8 +3,8 @@ package app.coinfo.feature.search.common
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import app.coinfo.feature.search.presentation.home.adapter.TrendingCoinUI
-import app.coinfo.feature.search.presentation.home.adapter.TrendingCoinsAdapter
+import app.coinfo.feature.search.presentation.feature.home.adapter.TrendingCoinsAdapter
+import app.coinfo.feature.search.presentation.model.TrendingCoinUI
 import com.bumptech.glide.Glide
 
 object Bindings {

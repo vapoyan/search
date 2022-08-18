@@ -1,4 +1,4 @@
-package app.coinfo.feature.search.presentation.home.adapter
+package app.coinfo.feature.search.presentation.model
 
 data class TrendingCoinUI(
     val id: String,

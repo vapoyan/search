@@ -6,11 +6,11 @@
 
     <data>
 
-        <import type="app.coinfo.feature.search.common.Mappers" />
+        <import type="app.coinfo.feature.search.presentation.Mappers" />
 
         <variable
             name="contentViewModel"
-            type="app.coinfo.feature.search.presentation.home.HomeViewModel" />
+            type="app.coinfo.feature.search.presentation.feature.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

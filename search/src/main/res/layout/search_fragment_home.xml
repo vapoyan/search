@@ -7,13 +7,13 @@
     <data>
         <variable
             name="viewModel"
-            type="app.coinfo.feature.search.presentation.home.HomeViewModel" />
+            type="app.coinfo.feature.search.presentation.feature.home.HomeViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.home.HomeFragment">
+        tools:context=".presentation.feature.home.HomeFragment">
 
         <include
             android:id="@+id/include_search_fragment_home_content"

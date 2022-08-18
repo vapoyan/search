@@ -1,4 +1,4 @@
-package app.coinfo.feature.search.presentation.home
+package app.coinfo.feature.search.presentation.feature.home
 
 import app.coinfo.feature.search.domain.model.TrendingResult
 
