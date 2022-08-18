@@ -7,7 +7,7 @@ import app.coinfo.feature.search.presentation.feature.home.adapter.TrendingCoins
 import app.coinfo.feature.search.presentation.model.TrendingCoinUI
 import com.bumptech.glide.Glide
 
-object Bindings {
+internal object Bindings {
 
     @JvmStatic
     @BindingAdapter("trendingCoins")
@@ -16,10 +16,12 @@ object Bindings {
         adapter.submitList(coins)
     }
 
+    /** Loads the image for the given [url] and sets into the [view] ([ImageView])*/
     @JvmStatic
-    @BindingAdapter("glideImage")
-    fun bingImage(imageView: ImageView, url: String) {
-        Glide.with(imageView).load(url).into(imageView)
+    @BindingAdapter("imageUrl")
+    fun setImageFromUrl(view: ImageView, url: String?) {
+        // TODO: Set the placeholder image, so it is displayed in the case of error.
+        Glide.with(view).load(url).into(view)
     }
 
     private fun getOrCreateAdapter(recyclerView: RecyclerView): TrendingCoinsAdapter {

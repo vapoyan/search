@@ -11,7 +11,7 @@ internal object Mappers {
             TrendingCoinUI(
                 id = it.id,
                 symbol = it.symbol,
-                thumbnailUrl = it.large
+                imageUrl = it.large
             )
         } ?: emptyList()
 }

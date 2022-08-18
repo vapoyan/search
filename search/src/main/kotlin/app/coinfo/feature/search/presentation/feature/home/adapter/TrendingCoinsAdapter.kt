@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import app.coinfo.feature.search.databinding.SearchItemTrendingCoinsBinding
 import app.coinfo.feature.search.presentation.model.TrendingCoinUI
-import com.bumptech.glide.Glide
 
 class TrendingCoinsAdapter :
     ListAdapter<TrendingCoinUI, TrendingCoinsAdapter.TrendingCoinsHolder>(DiffCallback()) {
@@ -25,11 +24,7 @@ class TrendingCoinsAdapter :
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(coin: TrendingCoinUI) {
-            with(binding) {
-                textViewTrendingCoinSymbol.text = coin.symbol
-                Glide.with(imageViewTrendingCoinLogo).load(coin.thumbnailUrl)
-                    .into(imageViewTrendingCoinLogo)
-            }
+            binding.coin = coin
         }
     }
 

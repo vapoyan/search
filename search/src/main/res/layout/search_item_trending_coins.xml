@@ -4,6 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="coin"
+            type="app.coinfo.feature.search.presentation.model.TrendingCoinUI" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,6 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
+            app:imageUrl="@{coin.imageUrl}"
             tools:ignore="ContentDescription"
             tools:srcCompat="@sample/coins" />
 
@@ -28,6 +36,7 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:textAllCaps="true"
+            android:text="@{coin.symbol}"
             app:layout_constraintBottom_toTopOf="@+id/text_view_trending_coin_percentage_change"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
