@@ -1,13 +1,13 @@
 package app.coinfo.feature.search.presentation.feature.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.coinfo.feature.search.common.Resource
 import app.coinfo.feature.search.domain.model.TrendingResult
 import app.coinfo.feature.search.domain.usecase.GetTrendingCoinsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -17,8 +17,8 @@ internal class HomeViewModel @Inject constructor(
     getTrendingCoinsUseCase: GetTrendingCoinsUseCase
 ) : ViewModel() {
 
-    private val _state = MutableLiveData<HomeState>()
-    val state: LiveData<HomeState> = _state
+    private val _state = MutableStateFlow(HomeState())
+    val state: StateFlow<HomeState> = _state
 
     init {
         getTrendingCoinsUseCase().onEach { result ->
@@ -37,6 +37,4 @@ internal class HomeViewModel @Inject constructor(
             }
         }.launchIn(viewModelScope)
     }
-
-
 }
