@@ -1,0 +1,110 @@
+{
+  "coins": [
+    {
+      "item": {
+        "id": "callisto",
+        "coin_id": 4051,
+        "name": "Callisto Network",
+        "symbol": "CLO",
+        "market_cap_rank": 935,
+        "thumb": "https://assets.coingecko.com/coins/images/4051/thumb/CLO.png?1613015885",
+        "small": "https://assets.coingecko.com/coins/images/4051/small/CLO.png?1613015885",
+        "large": "https://assets.coingecko.com/coins/images/4051/large/CLO.png?1613015885",
+        "slug": "callisto-network",
+        "price_btc": 1.3591728790528027e-7,
+        "score": 0
+      }
+    },
+    {
+      "item": {
+        "id": "stargate-finance",
+        "coin_id": 24413,
+        "name": "Stargate Finance",
+        "symbol": "STG",
+        "market_cap_rank": 292,
+        "thumb": "https://assets.coingecko.com/coins/images/24413/thumb/STG_LOGO.png?1647654518",
+        "small": "https://assets.coingecko.com/coins/images/24413/small/STG_LOGO.png?1647654518",
+        "large": "https://assets.coingecko.com/coins/images/24413/large/STG_LOGO.png?1647654518",
+        "slug": "stargate-finance",
+        "price_btc": 0.000030361599060620554,
+        "score": 1
+      }
+    },
+    {
+      "item": {
+        "id": "weway",
+        "coin_id": 22418,
+        "name": "WeWay",
+        "symbol": "WWY",
+        "market_cap_rank": 374,
+        "thumb": "https://assets.coingecko.com/coins/images/22418/thumb/aeYkGywy_400x400.jpg?1641805947",
+        "small": "https://assets.coingecko.com/coins/images/22418/small/aeYkGywy_400x400.jpg?1641805947",
+        "large": "https://assets.coingecko.com/coins/images/22418/large/aeYkGywy_400x400.jpg?1641805947",
+        "slug": "weway",
+        "price_btc": 0.00000108480209245349,
+        "score": 2
+      }
+    },
+    {
+      "item": {
+        "id": "richquack",
+        "coin_id": 16356,
+        "name": "Rich Quack",
+        "symbol": "QUACK",
+        "market_cap_rank": 512,
+        "thumb": "https://assets.coingecko.com/coins/images/16356/thumb/57198446-0-Get-Rich-Quick-Gober.png?1623812294",
+        "small": "https://assets.coingecko.com/coins/images/16356/small/57198446-0-Get-Rich-Quick-Gober.png?1623812294",
+        "large": "https://assets.coingecko.com/coins/images/16356/large/57198446-0-Get-Rich-Quick-Gober.png?1623812294",
+        "slug": "rich-quack",
+        "price_btc": 3.784197401259646e-14,
+        "score": 3
+      }
+    },
+    {
+      "item": {
+        "id": "astrafer",
+        "coin_id": 26246,
+        "name": "Astrafer",
+        "symbol": "ASTRAFER",
+        "market_cap_rank": 414,
+        "thumb": "https://assets.coingecko.com/coins/images/26246/thumb/ATSRA_Token.png?1657276411",
+        "small": "https://assets.coingecko.com/coins/images/26246/small/ATSRA_Token.png?1657276411",
+        "large": "https://assets.coingecko.com/coins/images/26246/large/ATSRA_Token.png?1657276411",
+        "slug": "astrafer",
+        "price_btc": 0.0001689796016871618,
+        "score": 4
+      }
+    },
+    {
+      "item": {
+        "id": "optimism",
+        "coin_id": 25244,
+        "name": "Optimism",
+        "symbol": "OP",
+        "market_cap_rank": 140,
+        "thumb": "https://assets.coingecko.com/coins/images/25244/thumb/OP.jpeg?1651026279",
+        "small": "https://assets.coingecko.com/coins/images/25244/small/OP.jpeg?1651026279",
+        "large": "https://assets.coingecko.com/coins/images/25244/large/OP.jpeg?1651026279",
+        "slug": "optimism",
+        "price_btc": 0.00005672507538383553,
+        "score": 5
+      }
+    },
+    {
+      "item": {
+        "id": "escoin-token",
+        "coin_id": 13566,
+        "name": "Escoin",
+        "symbol": "ELG",
+        "market_cap_rank": 153,
+        "thumb": "https://assets.coingecko.com/coins/images/13566/thumb/escoin-200.png?1609833886",
+        "small": "https://assets.coingecko.com/coins/images/13566/small/escoin-200.png?1609833886",
+        "large": "https://assets.coingecko.com/coins/images/13566/large/escoin-200.png?1609833886",
+        "slug": "escoin-token",
+        "price_btc": 0.00014206871644919811,
+        "score": 6
+      }
+    }
+  ],
+  "exchanges": []
+}
