@@ -30,7 +30,7 @@ internal object Bindings {
 
     /** Loads the image for the given [url] and sets into the [view] ([ImageView])*/
     @JvmStatic
-    @BindingAdapter("imageUrl")
+    @BindingAdapter("bind:imageUrl")
     internal fun setImageFromUrl(view: ImageView, url: String?) {
         // TODO: Set the placeholder image, so it is displayed in the case of error.
         Glide.with(view).load(url).into(view)
