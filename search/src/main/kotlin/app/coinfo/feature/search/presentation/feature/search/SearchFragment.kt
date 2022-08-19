@@ -11,7 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SearchFragment : Fragment(R.layout.search_fragment_search) {
+internal class SearchFragment : Fragment(R.layout.search_fragment_search) {
 
     private val binding: SearchFragmentSearchBinding by viewBinding(SearchFragmentSearchBinding::bind)
     private val viewModel: SearchViewModel by viewModels()

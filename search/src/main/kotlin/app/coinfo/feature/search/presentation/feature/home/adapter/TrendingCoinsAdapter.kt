@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import app.coinfo.feature.search.databinding.SearchItemTrendingCoinsBinding
 import app.coinfo.feature.search.presentation.model.TrendingCoinUI
 
-class TrendingCoinsAdapter :
+internal class TrendingCoinsAdapter :
     ListAdapter<TrendingCoinUI, TrendingCoinsAdapter.TrendingCoinsHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = TrendingCoinsHolder(

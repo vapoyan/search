@@ -1,6 +1,6 @@
 package app.coinfo.feature.search.domain.model
 
-data class TrendingCoin(
+internal data class TrendingCoin(
     val coinId: Int,
     val id: String,
     val large: String,
