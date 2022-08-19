@@ -7,7 +7,7 @@
     <data>
 
         <variable
-            name="coin"
+            name="data"
             type="app.coinfo.feature.search.presentation.model.TrendingCoinUI" />
     </data>
 
@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            app:imageUrl="@{coin.imageUrl}"
+            app:imageUrl="@{data.imageUrl}"
             tools:ignore="ContentDescription"
             tools:srcCompat="@sample/coins" />
 
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:textAllCaps="true"
-            android:text="@{coin.symbol}"
+            android:text="@{data.symbol}"
             app:layout_constraintBottom_toTopOf="@+id/text_view_trending_coin_percentage_change"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

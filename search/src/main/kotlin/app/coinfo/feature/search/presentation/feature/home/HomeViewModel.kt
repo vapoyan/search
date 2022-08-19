@@ -37,4 +37,8 @@ internal class HomeViewModel @Inject constructor(
             }
         }.launchIn(viewModelScope)
     }
+
+    fun onTrendingCoinClicked(id: String) {
+        val a = 111
+    }
 }

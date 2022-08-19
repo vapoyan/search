@@ -2,6 +2,7 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -51,7 +52,8 @@
                     android:layout_marginTop="@dimen/search_margin_s"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:spanCount="@integer/search_grid_columns"
-                    app:trendingCoins="@{Mappers.toTrendingCoinsUI(contentViewModel.state.result)}"
+                    bind:data="@{Mappers.toTrendingCoinsUI(contentViewModel.state.result)}"
+                    bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onTrendingCoinClicked(item.id)}"
                     tools:itemCount="8"
                     tools:listitem="@layout/search_item_trending_coins" />
 
