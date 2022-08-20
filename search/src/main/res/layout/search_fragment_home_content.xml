@@ -7,7 +7,7 @@
 
     <data>
 
-        <import type="app.coinfo.feature.search.presentation.Mappers" />
+        <import type="app.coinfo.feature.search.presentation.mapper.Mappers" />
 
         <variable
             name="contentViewModel"

@@ -3,9 +3,9 @@ package app.coinfo.feature.search.presentation.binding
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import app.coinfo.feature.search.common.widget.recyclerview.BindableRecyclerData
-import app.coinfo.feature.search.common.widget.recyclerview.BindableRecyclerViewAdapter
-import app.coinfo.feature.search.common.widget.recyclerview.OnDataClicked
+import app.coinfo.feature.search.presentation.adapter.RecyclerViewAdapter
+import app.coinfo.feature.search.presentation.adapter.RecyclerViewData
+import app.coinfo.feature.search.presentation.adapter.RecyclerViewItemClickListener
 import com.bumptech.glide.Glide
 
 
@@ -15,14 +15,14 @@ internal object Bindings {
     @BindingAdapter(value = ["bind:onRecyclerViewItemClicked"])
     internal fun bindRecyclerViewDataClickListener(
         view: RecyclerView,
-        onCoinClicked: OnDataClicked
+        onCoinClicked: RecyclerViewItemClickListener
     ) {
-        (view.adapter as BindableRecyclerViewAdapter).setDataClickListener(onCoinClicked)
+        (view.adapter as RecyclerViewAdapter).setDataClickListener(onCoinClicked)
     }
 
     @JvmStatic
     @BindingAdapter(value = ["bind:data"])
-    internal fun bindRecyclerViewData(view: RecyclerView, data: BindableRecyclerData) {
+    internal fun bindRecyclerViewData(view: RecyclerView, data: RecyclerViewData) {
         val adapter = getOrCreateAdapter(view, data.layoutId)
         adapter.submitList(data.data)
     }
@@ -39,11 +39,11 @@ internal object Bindings {
     private fun getOrCreateAdapter(
         recyclerView: RecyclerView,
         id: Int
-    ): BindableRecyclerViewAdapter {
-        return if (recyclerView.adapter != null && recyclerView.adapter is BindableRecyclerViewAdapter) {
-            recyclerView.adapter as BindableRecyclerViewAdapter
+    ): RecyclerViewAdapter {
+        return if (recyclerView.adapter != null && recyclerView.adapter is RecyclerViewAdapter) {
+            recyclerView.adapter as RecyclerViewAdapter
         } else {
-            val bindableRecyclerAdapter = BindableRecyclerViewAdapter(id)
+            val bindableRecyclerAdapter = RecyclerViewAdapter(id)
             recyclerView.adapter = bindableRecyclerAdapter
             bindableRecyclerAdapter
         }
