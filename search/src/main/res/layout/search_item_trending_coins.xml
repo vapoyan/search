@@ -36,24 +36,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textAllCaps="true"
             android:text="@{data.symbol}"
-            app:layout_constraintBottom_toTopOf="@+id/text_view_trending_coin_percentage_change"
+            android:layout_marginTop="@dimen/search_margin_s"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toTopOf="@+id/linear_layout_price_change"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_view_trending_coin_logo"
             tools:text="@sample/coins.json/coins/codes/code" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/text_view_trending_coin_percentage_change"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_price_change"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_trending_coin_symbol"
-            tools:text="@sample/coins.json/coins/percentages/percentage" />
+            app:layout_constraintTop_toBottomOf="@+id/text_view_trending_coin_symbol">
+
+            <ImageView
+                android:id="@+id/image_view_trend"
+                android:layout_width="@dimen/search_size_trend_up_down_width"
+                android:layout_height="@dimen/search_size_trend_up_down_height"
+                bind:imageResource="@{data.priceChangeImage}"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/search_ic_up" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_trending_coin_percentage_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@{data.priceChange24H}"
+                tools:text="@sample/coins.json/coins/percentages/percentage" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

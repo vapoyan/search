@@ -11,5 +11,6 @@ internal data class TrendingCoin(
     val slug: String,
     val small: String,
     val symbol: String,
-    val thumb: String
+    val thumb: String,
+    val change24Hour: Double?
 )

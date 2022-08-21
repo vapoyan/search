@@ -1,6 +1,7 @@
 package app.coinfo.feature.search.presentation.binding
 
 import android.widget.ImageView
+import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import app.coinfo.feature.search.presentation.adapter.RecyclerViewAdapter
@@ -34,6 +35,12 @@ internal object Bindings {
     internal fun setImageFromUrl(view: ImageView, url: String?) {
         // TODO: Set the placeholder image, so it is displayed in the case of error.
         Glide.with(view).load(url).into(view)
+    }
+
+    @JvmStatic
+    @BindingAdapter("bind:imageResource")
+    internal fun setImageFromResource(view: ImageView, @DrawableRes resId: Int) {
+        view.setImageResource(resId)
     }
 
     private fun getOrCreateAdapter(

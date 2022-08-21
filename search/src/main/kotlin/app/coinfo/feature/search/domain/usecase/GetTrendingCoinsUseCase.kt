@@ -1,5 +1,6 @@
 package app.coinfo.feature.search.domain.usecase
 
+import android.util.Log
 import app.coinfo.feature.search.common.Mappers.toTrendingResult
 import app.coinfo.feature.search.common.Resource
 import app.coinfo.feature.search.domain.model.TrendingResult
@@ -27,12 +28,19 @@ internal class GetTrendingCoinsUseCase @Inject constructor(
     operator fun invoke(): Flow<Resource<TrendingResult>> = flow {
         try {
             emit(Resource.Loading())
-            val result = repository.trending().toTrendingResult()
-            emit(Resource.Success(result))
+            val trendingCoins = repository.trending()
+            val coin = repository.getPrice(trendingCoins.coins.map { it.item.id })
+            emit(Resource.Success(trendingCoins.toTrendingResult(coin)))
         } catch (e: HttpException) {
+            Log.e(TAG, "Exception occurs while Getting List of Trending coins", e)
             emit(Resource.Failure(e.localizedMessage))
         } catch (e: IOException) {
+            Log.e(TAG, "Exception occurs while Getting List of Trending coins", e)
             emit(Resource.Failure(e.localizedMessage))
         }
     }.flowOn(Dispatchers.IO)
+
+    companion object {
+        private const val TAG = "GetTrendingCoinsUseCase"
+    }
 }
