@@ -6,11 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <import type="android.graphics.Color" />
-
-        <import type="com.google.android.material.color.MaterialColors" />
-
         <variable
             name="data"
             type="app.coinfo.feature.search.presentation.model.TrendingCoinUI" />

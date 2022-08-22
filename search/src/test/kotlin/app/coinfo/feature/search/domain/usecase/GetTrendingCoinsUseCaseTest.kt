@@ -56,7 +56,8 @@ internal class GetTrendingCoinsUseCaseTest {
                 large = "https://assets.coingecko.com/coins/images/24413/large/STG_LOGO.png?1647654518",
                 slug = "stargate-finance",
                 priceBtc = 0.000030361599060620554,
-                score = 1
+                score = 1,
+                change24Hour = 0.0
             )
         )
     }

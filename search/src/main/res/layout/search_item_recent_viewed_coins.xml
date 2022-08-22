@@ -1,6 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="app.coinfo.feature.search.presentation.model.RecentViewedCoinUI" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="@dimen/search_size_recent_viewed_card_view_width"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorOnBackground"
+        app:cardCornerRadius="@dimen/search_corner_radius_card_view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/search_padding_default">
+
+            <ImageView
+                android:id="@+id/image_view_recent_viewed_coin_logo"
+                android:layout_width="@dimen/search_size_recent_viewed_coin_logo_width"
+                android:layout_height="@dimen/search_size_recent_viewed_coin_logo_height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:imageUrl="@{data.imageUrl}"
+                tools:ignore="ContentDescription"
+                tools:srcCompat="@sample/coins" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_recent_viewed_coin_symbol"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/search_margin_l"
+                android:text="@{data.symbol}"
+                android:textAllCaps="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_view_recent_viewed_coin_logo"
+                tools:text="@sample/coins.json/coins/codes/code" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_recent_viewed_coin_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{data.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_recent_viewed_coin_symbol"
+                tools:text="@sample/coins.json/coins/names/name" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_recent_viewed_coin_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{data.price}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_recent_viewed_coin_name"
+                tools:text="@sample/coins.json/coins/prices/price" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_recent_viewed_coin_percentage_change"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{data.priceChange24h}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_recent_viewed_coin_price"
+                tools:text="@sample/coins.json/coins/percentages/percentage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+
