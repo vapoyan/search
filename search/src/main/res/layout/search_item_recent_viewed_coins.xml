@@ -16,6 +16,7 @@
         android:layout_width="@dimen/search_size_recent_viewed_card_view_width"
         android:layout_height="wrap_content"
         android:background="?attr/colorOnBackground"
+        android:layout_marginRight="@dimen/search_margin_s"
         app:cardCornerRadius="@dimen/search_corner_radius_card_view">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -40,6 +41,10 @@
                 android:layout_marginTop="@dimen/search_margin_l"
                 android:text="@{data.symbol}"
                 android:textAllCaps="true"
+                android:clickable="false"
+                android:ellipsize="end"
+                android:focusable="false"
+                android:maxLines="@integer/search_max_one_line"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image_view_recent_viewed_coin_logo"
@@ -50,6 +55,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{data.name}"
+                android:clickable="false"
+                android:ellipsize="end"
+                android:focusable="false"
+                android:maxLines="@integer/search_max_one_line"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_view_recent_viewed_coin_symbol"
@@ -60,6 +69,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{data.price}"
+                android:clickable="false"
+                android:ellipsize="end"
+                android:focusable="false"
+                android:maxLines="@integer/search_max_one_line"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_view_recent_viewed_coin_name"
@@ -70,6 +83,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{data.priceChange24h}"
+                android:clickable="false"
+                android:ellipsize="end"
+                android:focusable="false"
+                android:maxLines="@integer/search_max_one_line"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +95,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </com.google.android.material.card.MaterialCardView>
+
 </layout>
 
