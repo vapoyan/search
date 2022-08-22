@@ -17,4 +17,6 @@
     <dimen name="search_size_trend_up_down_width">24dp</dimen>
     <dimen name="search_size_trend_up_down_height">24dp</dimen>
 
+    <dimen name="search_corner_radius_card_view">16dp</dimen>
+
 </resources>

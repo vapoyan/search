@@ -45,17 +45,26 @@
                     android:text="Today's Top Movers"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_top_trending_coins"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_view_top_trending_coins"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/search_margin_s"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:spanCount="@integer/search_grid_columns"
-                    bind:data="@{Mappers.toTrendingCoinsUI(contentViewModel.state.result)}"
-                    bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onTrendingCoinClicked(item.id)}"
-                    tools:itemCount="8"
-                    tools:listitem="@layout/search_item_trending_coins" />
+                    android:padding="@dimen/search_padding_default"
+                    app:cardCornerRadius="@dimen/search_corner_radius_card_view">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view_top_trending_coins"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:spanCount="@integer/search_grid_columns"
+                        bind:data="@{Mappers.toTrendingCoinsUI(contentViewModel.state.result)}"
+                        bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onTrendingCoinClicked(item.id)}"
+                        tools:itemCount="8"
+                        tools:listitem="@layout/search_item_trending_coins" />
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/label_recently_viewed_coins"
