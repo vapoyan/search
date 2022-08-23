@@ -39,6 +39,7 @@
             android:layout_marginTop="@dimen/search_margin_s"
             android:textAllCaps="true"
             android:textColor="?attr/colorOnPrimary"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
             app:layout_constraintBottom_toTopOf="@+id/linear_layout_price_change"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +63,7 @@
                 android:id="@+id/image_view_trend"
                 android:layout_width="@dimen/search_size_trend_up_down_width"
                 android:layout_height="@dimen/search_size_trend_up_down_height"
-                bind:imageResource="@{data.priceChangeImage}"
+                bind:trendImage="@{data.trend}"
                 tools:ignore="ContentDescription"
                 tools:src="@drawable/search_ic_up" />
 
@@ -72,6 +73,8 @@
                 android:layout_height="wrap_content"
                 android:maxLines="@integer/search_max_one_line"
                 android:text="@{data.priceChange24H}"
+                bind:trendColor="@{data.trend}"
+                tools:textColor="?attr/colorPrimaryVariant"
                 tools:text="@sample/coins.json/coins/percentages/percentage" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>

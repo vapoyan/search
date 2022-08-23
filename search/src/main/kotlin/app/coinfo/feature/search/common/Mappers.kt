@@ -39,7 +39,7 @@ internal object Mappers {
             symbol = symbol,
             thumb = thumb,
             score = score,
-            change24Hour = coin[id]?.price24hChange
+            change24Hour = coin[id]?.price24hChange ?: 0.0
         )
     }
 

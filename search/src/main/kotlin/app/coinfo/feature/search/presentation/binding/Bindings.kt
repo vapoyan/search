@@ -1,13 +1,17 @@
 package app.coinfo.feature.search.presentation.binding
 
+import android.content.Context
+import android.util.TypedValue
 import android.widget.ImageView
-import androidx.annotation.DrawableRes
+import androidx.annotation.AttrRes
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import app.coinfo.feature.search.R
 import app.coinfo.feature.search.presentation.adapter.RecyclerViewAdapter
 import app.coinfo.feature.search.presentation.adapter.RecyclerViewData
 import app.coinfo.feature.search.presentation.adapter.RecyclerViewItemClickListener
 import com.bumptech.glide.Glide
+import com.google.android.material.textview.MaterialTextView
 
 
 internal object Bindings {
@@ -38,10 +42,23 @@ internal object Bindings {
     }
 
     @JvmStatic
-    @BindingAdapter("bind:imageResource")
-    internal fun setImageFromResource(view: ImageView, @DrawableRes resId: Int) {
-        view.setImageResource(resId)
+    @BindingAdapter("bind:trendColor")
+    internal fun setTrendColor(view: MaterialTextView, trend: Boolean) {
+        val attrRes = if (trend) {
+            com.google.android.material.R.attr.colorPrimaryVariant
+        } else com.google.android.material.R.attr.colorError
+        view.setTextColor(view.context.getColorAttributeColor(attrRes))
     }
+
+    @JvmStatic
+    @BindingAdapter("bind:trendImage")
+    internal fun setImageFromResource(view: ImageView, trend: Boolean) {
+        view.setImageResource(if (trend) R.drawable.search_ic_up else R.drawable.search_ic_down)
+    }
+
+    private fun Context.getColorAttributeColor(@AttrRes attrRes: Int) = TypedValue()
+        .apply { theme.resolveAttribute(attrRes, this, true) }
+        .data
 
     private fun getOrCreateAdapter(
         recyclerView: RecyclerView,
@@ -55,5 +72,4 @@ internal object Bindings {
             bindableRecyclerAdapter
         }
     }
-
 }

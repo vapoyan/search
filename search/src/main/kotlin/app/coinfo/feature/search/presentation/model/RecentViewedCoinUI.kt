@@ -8,5 +8,6 @@ data class RecentViewedCoinUI(
     val name: String,
     val imageUrl: String,
     val price: String,
-    val priceChange24h: String
+    val priceChange24h: String,
+    val trend: Boolean,
 ) : RecyclerViewItem
