@@ -1,9 +1,9 @@
 package app.coinfo.feature.search.domain.usecase
 
 import android.util.Log
+import app.coinfo.feature.search.common.Mappers.toRecentViewedResult
 import app.coinfo.feature.search.common.Resource
 import app.coinfo.feature.search.data.local.SearchPreferences
-import app.coinfo.feature.search.domain.model.RecentViewedCoins
 import app.coinfo.feature.search.domain.model.RecentViewedResult
 import app.coinfo.feature.search.domain.repository.SearchRepository
 import kotlinx.coroutines.Dispatchers
@@ -24,9 +24,8 @@ internal class GetRecentViewedCoinsUseCase @Inject constructor(
             emit(Resource.Loading())
             val ids = preferences.getRecentViewedCoinIds()
             Log.d(TAG, "  > IDs: $ids")
-            emit(Resource.Success(RecentViewedResult(repository.getPrice(ids).map { price ->
-                RecentViewedCoins(price.key)
-            })).also { Log.d(TAG, "  < Coins: ${it.data}") })
+            emit(Resource.Success(repository.getMarketData(ids).toRecentViewedResult())
+                .also { Log.d(TAG, "  < Coins: ${it.data}") })
         } catch (e: HttpException) {
             Log.e(TAG, "Error occurs while loading coin information", e)
             emit(Resource.Failure(e.localizedMessage))

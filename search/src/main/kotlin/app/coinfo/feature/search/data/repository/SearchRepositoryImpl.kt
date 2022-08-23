@@ -2,6 +2,7 @@ package app.coinfo.feature.search.data.repository
 
 import android.util.Log
 import app.coinfo.feature.search.data.remote.CoingeckoApi
+import app.coinfo.feature.search.data.remote.dto.MarketDataResultDto
 import app.coinfo.feature.search.data.remote.dto.PriceItemDto
 import app.coinfo.feature.search.data.remote.dto.SearchResultDto
 import app.coinfo.feature.search.data.remote.dto.TrendingResultDto
@@ -29,6 +30,15 @@ internal class SearchRepositoryImpl @Inject constructor(
         Log.d(TAG, "  > Ids    : $stringListIds")
         val result = api.getPrice(ids = stringListIds)
         Log.d(TAG, "  < Prices : $result")
+        return result
+    }
+
+    override suspend fun getMarketData(ids: List<String>): MarketDataResultDto {
+        Log.d(TAG, "Get Market Data")
+        val stringListIds = ids.joinToString(separator = ",")
+        Log.d(TAG, "  > Ids    : $stringListIds")
+        val result = api.getMarketData(stringListIds)
+        Log.d(TAG, "  < Data : $result")
         return result
     }
 

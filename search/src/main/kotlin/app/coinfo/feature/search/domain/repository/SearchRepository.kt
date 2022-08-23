@@ -1,5 +1,6 @@
 package app.coinfo.feature.search.domain.repository
 
+import app.coinfo.feature.search.data.remote.dto.MarketDataResultDto
 import app.coinfo.feature.search.data.remote.dto.PriceItemDto
 import app.coinfo.feature.search.data.remote.dto.SearchResultDto
 import app.coinfo.feature.search.data.remote.dto.TrendingResultDto
@@ -19,7 +20,12 @@ internal interface SearchRepository {
     suspend fun trending(): TrendingResultDto
 
     /**
-     * Get the price of given cryptocurrency ids in euro
+     * Gets the price of given cryptocurrency ids in euro
      */
     suspend fun getPrice(ids: List<String>): Map<String, PriceItemDto>
+
+    /**
+     * Gets the market data (price, market cap, volume) for the given cryptocurrency ids in euro.
+     */
+    suspend fun getMarketData(ids: List<String>): MarketDataResultDto
 }

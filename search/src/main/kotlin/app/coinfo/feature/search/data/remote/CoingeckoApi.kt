@@ -1,5 +1,6 @@
 package app.coinfo.feature.search.data.remote
 
+import app.coinfo.feature.search.data.remote.dto.MarketDataResultDto
 import app.coinfo.feature.search.data.remote.dto.PriceItemDto
 import app.coinfo.feature.search.data.remote.dto.SearchResultDto
 import app.coinfo.feature.search.data.remote.dto.TrendingResultDto
@@ -29,4 +30,17 @@ internal interface CoingeckoApi {
         @Query("include_24hr_change") include24hChanged: Boolean = true,
         @Query("include_last_updated_at") includeLastUpdateAt: Boolean = true
     ): Map<String, PriceItemDto>
+
+    /**
+     * Gets all the coins market data (price, market cap, volume)
+     */
+    @GET("v3/coins/markets")
+    suspend fun getMarketData(
+        @Query("ids") ids: String,
+        @Query("vs_currency") currencies: String = "eur",
+        @Query("per_page") perPage: Int = 100,
+        @Query("page") page: Int = 1,
+        @Query("sparkline") sparkline: Boolean = false,
+        @Query("price_change_percentage") priceChangePercentage: String = "1h,24h,7d"
+    ): MarketDataResultDto
 }

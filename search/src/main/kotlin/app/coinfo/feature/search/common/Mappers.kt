@@ -1,10 +1,7 @@
 package app.coinfo.feature.search.common
 
 import app.coinfo.feature.search.data.remote.dto.*
-import app.coinfo.feature.search.domain.model.SearchCoin
-import app.coinfo.feature.search.domain.model.SearchResult
-import app.coinfo.feature.search.domain.model.TrendingCoin
-import app.coinfo.feature.search.domain.model.TrendingResult
+import app.coinfo.feature.search.domain.model.*
 
 internal object Mappers {
 
@@ -14,6 +11,10 @@ internal object Mappers {
 
     fun TrendingResultDto.toTrendingResult(coin: Map<String, PriceItemDto>) = TrendingResult(
         coins = coins.map { it.toTrendingCoin(coin) }
+    )
+
+    fun MarketDataResultDto.toRecentViewedResult() = RecentViewedResult(
+        coins = this.map { it.toRecentViewedCoin() }
     )
 
     private fun CoinDto.toSearchCoin() = SearchCoin(
@@ -41,4 +42,13 @@ internal object Mappers {
             change24Hour = coin[id]?.price24hChange
         )
     }
+
+    private fun MarketDataDto.toRecentViewedCoin() = RecentViewedCoins(
+        id = id,
+        name = name,
+        symbol = symbol,
+        price = currentPrice,
+        imageUrl = image,
+        priceChangePercentage24h = priceChangePercentage24h
+    )
 }

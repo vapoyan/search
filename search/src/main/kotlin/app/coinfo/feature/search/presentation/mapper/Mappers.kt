@@ -32,11 +32,11 @@ internal object Mappers {
         this?.coins?.map { coin ->
             RecentViewedCoinUI(
                 id = coin.id,
-                name = coin.id,
-                symbol = coin.id,
-                imageUrl = "",
-                price = "100",
-                priceChange24h = "200"
+                name = coin.name,
+                symbol = coin.symbol,
+                imageUrl = coin.imageUrl,
+                price = "%.2f".format(abs(coin.price)),
+                priceChange24h = "%.2f".format(abs(coin.priceChangePercentage24h)),
             )
         } ?: emptyList()
     )
