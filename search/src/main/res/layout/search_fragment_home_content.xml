@@ -34,16 +34,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/search_margin_default"
                     android:text="Search"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
                     android:textStyle="bold" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/label_top_trending_coins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/search_margin_default"
+                    android:layout_marginTop="@dimen/search_margin_xl"
+                    android:layout_marginBottom="@dimen/search_margin_s"
                     android:text="Today's Top Movers"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_view_top_trending_coins"
@@ -70,9 +71,10 @@
                     android:id="@+id/label_recently_viewed_coins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/search_margin_default"
+                    android:layout_marginTop="@dimen/search_margin_xl"
+                    android:layout_marginBottom="@dimen/search_margin_s"
                     android:text="Recently Viewed"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view_recently_viewed_coins"

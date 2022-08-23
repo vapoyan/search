@@ -18,7 +18,7 @@ internal object Mappers {
                 id = coin.id,
                 symbol = coin.symbol,
                 imageUrl = coin.large,
-                priceChange24H = "%.2f".format(abs(coin.change24Hour ?: 0.0)),
+                priceChange24H = "%.2f%%".format(abs(coin.change24Hour ?: 0.0)),
                 priceChangeImage = if ((coin.change24Hour ?: 0.0).compareTo(0.0) > 0) {
                     R.drawable.search_ic_up
                 } else R.drawable.search_ic_down
@@ -35,8 +35,8 @@ internal object Mappers {
                 name = coin.name,
                 symbol = coin.symbol,
                 imageUrl = coin.imageUrl,
-                price = "%.2f".format(abs(coin.price)),
-                priceChange24h = "%.2f".format(abs(coin.priceChangePercentage24h)),
+                price = "€%.2f".format(abs(coin.price)),
+                priceChange24h = "%.2f%%".format(abs(coin.priceChangePercentage24h)),
             )
         } ?: emptyList()
     )

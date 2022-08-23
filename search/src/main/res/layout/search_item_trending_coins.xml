@@ -34,7 +34,7 @@
             android:id="@+id/text_view_trending_coin_symbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="1"
+            android:maxLines="@integer/search_max_one_line"
             android:text="@{data.symbol}"
             android:layout_marginTop="@dimen/search_margin_s"
             android:textAllCaps="true"
@@ -70,7 +70,7 @@
                 android:id="@+id/text_view_trending_coin_percentage_change"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxLines="1"
+                android:maxLines="@integer/search_max_one_line"
                 android:text="@{data.priceChange24H}"
                 tools:text="@sample/coins.json/coins/percentages/percentage" />
 
