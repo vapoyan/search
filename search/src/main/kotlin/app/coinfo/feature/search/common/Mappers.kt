@@ -13,8 +13,8 @@ internal object Mappers {
         coins = coins.map { it.toTrendingCoin(coin) }
     )
 
-    fun MarketDataResultDto.toRecentViewedResult() = RecentViewedResult(
-        coins = this.map { it.toRecentViewedCoin() }
+    fun MarketDataResultDto.toRecentViewedResult(ids: List<String>) = RecentViewedResult(
+        coins = ids.map { id -> this.first { coin -> coin.id == id }.toRecentViewedCoin() }
     )
 
     private fun CoinDto.toSearchCoin() = SearchCoin(

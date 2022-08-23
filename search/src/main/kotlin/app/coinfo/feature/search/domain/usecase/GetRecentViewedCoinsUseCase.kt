@@ -23,8 +23,8 @@ internal class GetRecentViewedCoinsUseCase @Inject constructor(
             Log.d(TAG, "Get Recent Viewed Coins Use Case")
             emit(Resource.Loading())
             val ids = preferences.getRecentViewedCoinIds()
-            Log.d(TAG, "  > IDs: $ids")
-            emit(Resource.Success(repository.getMarketData(ids).toRecentViewedResult())
+            Log.d("TAG", "  > IDs: $ids")
+            emit(Resource.Success(repository.getMarketData(ids).toRecentViewedResult(ids))
                 .also { Log.d(TAG, "  < Coins: ${it.data}") })
         } catch (e: HttpException) {
             Log.e(TAG, "Error occurs while loading coin information", e)

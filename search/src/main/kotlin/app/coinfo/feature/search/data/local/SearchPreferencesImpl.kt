@@ -32,9 +32,10 @@ internal class SearchPreferencesImpl(
 
     override suspend fun getRecentViewedCoinIds() = withContext(Dispatchers.IO) {
         Log.d(TAG, "Get Recent Viewed Coin IDs")
-        recentCoinsPreferences.all.entries.sortedBy { it.value as Long }.map { it.key }.also {
-            Log.d(TAG, "  < IDs: $it")
-        }
+        recentCoinsPreferences.all.entries.sortedByDescending { it.value as Long }.map { it.key }
+            .also {
+                Log.d(TAG, "  < IDs: $it")
+            }
     }
 
 
