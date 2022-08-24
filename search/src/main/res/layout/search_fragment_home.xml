@@ -35,7 +35,7 @@
             app:titleCentered="false">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_view_top_trending_coins"
+                android:id="@+id/card_view_search_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/search_margin_l"
