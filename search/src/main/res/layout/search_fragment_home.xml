@@ -24,14 +24,37 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/colorBackground"
+            android:background="?android:colorBackground"
+            android:backgroundTint="?android:colorBackground"
+            app:backgroundTint="?android:colorBackground"
             android:minHeight="?attr/actionBarSize"
             android:layout_gravity="bottom"
             app:hideOnScroll="true"
-            app:navigationIcon="@drawable/search_ic_close"
-            app:menu="@menu/search"
+            app:navigationIcon="@drawable/search_ic_back"
             app:title="@string/search_label_search"
-            app:titleCentered="false"/>
+            app:titleCentered="false">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_view_top_trending_coins"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/search_margin_l"
+                app:cardCornerRadius="@dimen/search_corner_radius_card_view">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:focusable="true"
+                    app:iconifiedByDefault="false"
+                    app:queryBackground="@null"
+                    app:queryHint="Search asset ..."
+                    app:searchIcon="@drawable/search_ic_search" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
