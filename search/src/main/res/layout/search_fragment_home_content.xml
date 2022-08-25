@@ -61,10 +61,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:spanCount="@integer/search_grid_columns"
+                        bind:data="@{Mappers.toSearchResultCoinsUI(contentViewModel.state.searchCoinsResult)}"
                         bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onSearchResultClicked(item.id)}"
                         tools:itemCount="8"
-                        tools:listitem="@layout/search_item_search_result"
+                        tools:listitem="@layout/search_item_search_coin"
                         tools:visibility="visible" />
 
                 </com.google.android.material.card.MaterialCardView>
@@ -95,7 +95,7 @@
                         bind:data="@{Mappers.toTrendingCoinsUI(contentViewModel.state.trendingCoinsResult)}"
                         bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onTrendingCoinClicked(item.id)}"
                         tools:itemCount="8"
-                        tools:listitem="@layout/search_item_trending_coins" />
+                        tools:listitem="@layout/search_item_trending_coin" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -118,7 +118,7 @@
                     bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onRecentViewedCoinClicked(item.id)}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="4"
-                    tools:listitem="@layout/search_item_recent_viewed_coins" />
+                    tools:listitem="@layout/search_item_recent_viewed_coin" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

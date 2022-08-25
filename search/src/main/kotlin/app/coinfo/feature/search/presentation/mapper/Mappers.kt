@@ -2,17 +2,35 @@ package app.coinfo.feature.search.presentation.mapper
 
 import app.coinfo.feature.search.R
 import app.coinfo.feature.search.domain.model.RecentViewedResult
+import app.coinfo.feature.search.domain.model.SearchResult
 import app.coinfo.feature.search.domain.model.TrendingResult
 import app.coinfo.feature.search.presentation.adapter.RecyclerViewData
 import app.coinfo.feature.search.presentation.model.RecentViewedCoinUI
+import app.coinfo.feature.search.presentation.model.SearchCoinUI
 import app.coinfo.feature.search.presentation.model.TrendingCoinUI
 import kotlin.math.abs
 
 internal object Mappers {
 
     @JvmStatic
+    fun SearchResult?.toSearchResultCoinsUI() = RecyclerViewData(
+        R.layout.search_item_search_coin,
+        this?.coins?.map { coin ->
+            SearchCoinUI(
+                id = coin.id,
+                symbol = coin.symbol,
+                name = coin.name,
+                imageUrl = coin.large,
+                price = "111",
+                priceChange24H = "111",
+                trend = true
+            )
+        } ?: emptyList()
+    )
+
+    @JvmStatic
     fun TrendingResult?.toTrendingCoinsUI() = RecyclerViewData(
-        R.layout.search_item_trending_coins,
+        R.layout.search_item_trending_coin,
         this?.coins?.map { coin ->
             TrendingCoinUI(
                 id = coin.id,
@@ -26,7 +44,7 @@ internal object Mappers {
 
     @JvmStatic
     fun RecentViewedResult?.toRecentViewedCoinsUI() = RecyclerViewData(
-        R.layout.search_item_recent_viewed_coins,
+        R.layout.search_item_recent_viewed_coin,
         this?.coins?.map { coin ->
             RecentViewedCoinUI(
                 id = coin.id,

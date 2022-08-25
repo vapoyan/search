@@ -85,7 +85,7 @@
                 tools:text="@sample/coins.json/coins/prices/price" />
 
             <ImageView
-                android:id="@+id/image_view_trend"
+                android:id="@+id/image_view_search_coin_trend"
                 android:layout_width="@dimen/search_size_trend_up_down_width"
                 android:layout_height="@dimen/search_size_trend_up_down_height"
                 app:layout_constraintStart_toStartOf="parent"
@@ -103,10 +103,10 @@
                 android:focusable="false"
                 android:maxLines="@integer/search_max_one_line"
                 android:text="@{data.priceChange24h}"
-                app:layout_constraintBottom_toBottomOf="@+id/image_view_trend"
+                app:layout_constraintBottom_toBottomOf="@+id/image_view_search_coin_trend"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/image_view_trend"
-                app:layout_constraintTop_toTopOf="@+id/image_view_trend"
+                app:layout_constraintStart_toEndOf="@+id/image_view_search_coin_trend"
+                app:layout_constraintTop_toTopOf="@+id/image_view_search_coin_trend"
                 bind:trendColor="@{data.trend}"
                 tools:text="@sample/coins.json/coins/percentages/percentage"
                 tools:textColor="?attr/colorPrimaryVariant" />
