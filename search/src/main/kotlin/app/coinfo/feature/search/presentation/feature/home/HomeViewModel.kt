@@ -43,11 +43,11 @@ internal class HomeViewModel @Inject constructor(
     }
 
     fun onSearchResultClicked(id: String) {
-
+        viewModelScope.launch { preferences.addRecentViewedCoinId(id) }
     }
 
     private fun getSearchedCoins() {
-        searchUseCase("bit").onEach { result ->
+        searchUseCase("x").onEach { result ->
             when (result) {
                 is Resource.Success -> {
                     _state.update {

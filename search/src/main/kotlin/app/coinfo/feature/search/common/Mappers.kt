@@ -5,10 +5,6 @@ import app.coinfo.feature.search.domain.model.*
 
 internal object Mappers {
 
-    fun SearchResultDto.toSearchResult() = SearchResult(
-        coins = coins.map { it.toSearchCoin() }
-    )
-
     fun TrendingResultDto.toTrendingResult(coin: Map<String, PriceItemDto>) = TrendingResult(
         coins = coins.map { it.toTrendingCoin(coin) }
     )
@@ -17,13 +13,8 @@ internal object Mappers {
         coins = ids.map { id -> this.first { coin -> coin.id == id }.toRecentViewedCoin() }
     )
 
-    private fun CoinDto.toSearchCoin() = SearchCoin(
-        id = id,
-        large = large,
-        marketCapRank = marketCapRank,
-        name = name,
-        symbol = symbol,
-        thumb = thumb,
+    fun MarketDataResultDto.toSearchResult() = SearchResult(
+        coins = this.map { it.toSearchResultCoin() }
     )
 
     private fun TrendingCoinDto.toTrendingCoin(coin: Map<String, PriceItemDto>) = with(item) {
@@ -43,7 +34,16 @@ internal object Mappers {
         )
     }
 
-    private fun MarketDataDto.toRecentViewedCoin() = RecentViewedCoins(
+    private fun MarketDataDto.toRecentViewedCoin() = RecentViewedCoin(
+        id = id,
+        name = name,
+        symbol = symbol,
+        price = currentPrice,
+        imageUrl = image,
+        priceChangePercentage24h = priceChangePercentage24h
+    )
+
+    private fun MarketDataDto.toSearchResultCoin() = SearchCoin(
         id = id,
         name = name,
         symbol = symbol,

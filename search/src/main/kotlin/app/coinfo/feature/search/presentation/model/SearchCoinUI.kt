@@ -7,7 +7,7 @@ internal data class SearchCoinUI(
     val symbol: String,
     val name: String,
     val imageUrl: String,
-    val priceChange24H: String,
+    val priceChange24h: String,
     val price: String,
     val trend: Boolean,
 ) : RecyclerViewItem

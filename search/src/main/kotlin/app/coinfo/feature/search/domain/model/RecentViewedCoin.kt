@@ -1,6 +1,6 @@
 package app.coinfo.feature.search.domain.model
 
-internal data class RecentViewedCoins(
+internal data class RecentViewedCoin(
     val id: String,
     val name: String,
     val symbol: String,

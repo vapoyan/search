@@ -113,7 +113,7 @@
                 android:clickable="false"
                 android:focusable="false"
                 android:gravity="end"
-                android:text="@{data.priceChange24H}"
+                android:text="@{data.priceChange24h}"
                 android:textAlignment="textEnd"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 bind:trendColor="@{data.trend}"

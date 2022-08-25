@@ -20,10 +20,10 @@ internal object Mappers {
                 id = coin.id,
                 symbol = coin.symbol,
                 name = coin.name,
-                imageUrl = coin.large,
-                price = "111",
-                priceChange24H = "111",
-                trend = true
+                imageUrl = coin.imageUrl,
+                price = "€%.2f".format(abs(coin.price)),
+                priceChange24h = "%.2f%%".format(abs(coin.priceChangePercentage24h)),
+                trend = coin.priceChangePercentage24h.compareTo(0.0) > 0
             )
         } ?: emptyList()
     )

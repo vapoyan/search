@@ -18,7 +18,9 @@ internal class SearchUseCase @Inject constructor(
     operator fun invoke(query: String): Flow<Resource<SearchResult>> = flow {
         try {
             emit(Resource.Loading())
-            val result = repository.search(query).toSearchResult()
+            val searchCoins = repository.search(query)
+            val searchCoinsDetails = repository.getMarketData(searchCoins.coins.map { it.id })
+            val result = searchCoinsDetails.toSearchResult()
             emit(Resource.Success(result))
         } catch (e: HttpException) {
             emit(Resource.Failure(e.localizedMessage))
