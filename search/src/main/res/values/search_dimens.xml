@@ -18,6 +18,9 @@
     <dimen name="search_size_recent_viewed_coin_logo_width">46dp</dimen>
     <dimen name="search_size_recent_viewed_coin_logo_height">46dp</dimen>
 
+    <dimen name="search_size_search_result_logo_width">46dp</dimen>
+    <dimen name="search_size_search_result_logo_height">46dp</dimen>
+
     <dimen name="search_size_trend_up_down_width">24dp</dimen>
     <dimen name="search_size_trend_up_down_height">24dp</dimen>
 

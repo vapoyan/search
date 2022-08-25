@@ -38,6 +38,38 @@
                     android:textStyle="bold" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/label_search_results"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/search_margin_xl"
+                    android:layout_marginBottom="@dimen/search_margin_s"
+                    android:text="Search Results"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_view_search_results"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/search_margin_s"
+                    android:padding="@dimen/search_padding_default"
+                    app:cardCornerRadius="@dimen/search_corner_radius_card_view"
+                    tools:visibility="visible">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view_search_results"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:spanCount="@integer/search_grid_columns"
+                        bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onSearchResultClicked(item.id)}"
+                        tools:itemCount="8"
+                        tools:listitem="@layout/search_item_search_result"
+                        tools:visibility="visible" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/label_top_trending_coins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

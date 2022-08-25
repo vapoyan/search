@@ -38,6 +38,10 @@ internal class HomeViewModel @Inject constructor(
 
     }
 
+    fun onSearchResultClicked(id: String) {
+
+    }
+
     private fun getTrendingCoins() {
         getTrendingCoinsUseCase().onEach { result ->
             when (result) {
