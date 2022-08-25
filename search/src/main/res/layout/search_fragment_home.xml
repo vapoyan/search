@@ -29,6 +29,7 @@
             app:backgroundTint="?android:colorBackground"
             android:minHeight="?attr/actionBarSize"
             android:layout_gravity="bottom"
+            android:padding="@dimen/search_padding_s"
             app:hideOnScroll="true"
             app:navigationIcon="@drawable/search_ic_back"
             app:title="@string/search_label_search"
@@ -38,7 +39,7 @@
                 android:id="@+id/card_view_search_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/search_margin_l"
+                android:layout_marginRight="@dimen/search_margin_default"
                 app:cardCornerRadius="@dimen/search_corner_radius_card_view">
 
                 <androidx.appcompat.widget.SearchView
