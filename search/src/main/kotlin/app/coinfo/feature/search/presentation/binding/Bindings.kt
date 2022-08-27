@@ -2,9 +2,11 @@ package app.coinfo.feature.search.presentation.binding
 
 import android.content.Context
 import android.util.TypedValue
+import android.view.View
 import android.widget.ImageView
 import androidx.annotation.AttrRes
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import app.coinfo.feature.search.R
@@ -26,18 +28,12 @@ internal object Bindings {
     }
 
     @JvmStatic
-    @BindingAdapter(value = ["bind:onRecyclerViewItemClicked"])
-    internal fun bindRecyclerViewDataClickListener(
-        view: RecyclerView,
-        onCoinClicked: RecyclerViewItemClickListener
+    @BindingAdapter(value = ["bind:data", "bind:onRecyclerViewItemClicked"], requireAll = false)
+    internal fun bindRecyclerViewData(
+        view: RecyclerView, data: RecyclerViewData, onCoinClicked: RecyclerViewItemClickListener
     ) {
-        (view.adapter as RecyclerViewAdapter).setDataClickListener(onCoinClicked)
-    }
-
-    @JvmStatic
-    @BindingAdapter(value = ["bind:data"])
-    internal fun bindRecyclerViewData(view: RecyclerView, data: RecyclerViewData) {
         val adapter = getOrCreateAdapter(view, data.layoutId)
+        adapter.setDataClickListener(onCoinClicked)
         adapter.submitList(data.data)
     }
 
@@ -72,6 +68,12 @@ internal object Bindings {
     internal fun setImageFromUrl(view: ImageView, url: String?) {
         // TODO: Set the placeholder image, so it is displayed in the case of error.
         Glide.with(view).load(url).into(view)
+    }
+
+    @JvmStatic
+    @BindingAdapter("bind:isVisible")
+    internal fun setViewVisibility(view: View, isVisible: Boolean = false) {
+        view.isVisible = isVisible
     }
 
     @JvmStatic

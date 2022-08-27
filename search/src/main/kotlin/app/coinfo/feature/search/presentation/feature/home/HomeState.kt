@@ -10,4 +10,13 @@ internal data class HomeState(
     val recentViewedCoinsResult: RecentViewedResult = RecentViewedResult(emptyList()),
     val searchCoinsResult: SearchResult = SearchResult(emptyList()),
     val error: String = ""
-)
+) {
+    val hasSearchResults: Boolean
+        get() = searchCoinsResult.coins.isNotEmpty()
+
+    val hasTrendingResults: Boolean
+        get() = trendingCoinsResult.coins.isNotEmpty()
+
+    val hasRecentlyViewedResults: Boolean
+        get() = recentViewedCoinsResult.coins.isNotEmpty()
+}

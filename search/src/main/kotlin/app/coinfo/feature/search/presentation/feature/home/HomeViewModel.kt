@@ -50,7 +50,13 @@ internal class HomeViewModel @Inject constructor(
     }
 
     fun onQueryTextChange(query: String?) {
-        query?.let { getSearchedCoins(it) }
+        query?.let {
+            if (it.isNotBlank() && it.isNotEmpty()) {
+                getSearchedCoins(it)
+            } else {
+                _state.update { state -> state.copy(searchCoinsResult = SearchResult(emptyList())) }
+            }
+        }
     }
 
     private fun getSearchedCoins(query: String) {

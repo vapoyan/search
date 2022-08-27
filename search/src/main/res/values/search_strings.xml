@@ -2,4 +2,9 @@
     <string name="search_label_search">Search</string>
     <string name="search_label_destination_home_fragment">Search</string>
     <string name="search_label_destination_search_fragment">Search</string>
+
+    <string name="search_label_search_result">Search Results</string>
+    <string name="search_label_top_movers_for_today">Today\'s Top Movers</string>
+    <string name="search_label_recently_viewed">Recently Viewed</string>
+
 </resources>

@@ -33,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/search_margin_s"
-                    android:text="Search"
+                    android:text="@string/search_label_search"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
                     android:textStyle="bold" />
 
@@ -43,8 +43,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/search_margin_xl"
                     android:layout_marginBottom="@dimen/search_margin_s"
-                    android:text="Search Results"
+                    android:text="@string/search_label_search_result"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                    bind:isVisible="@{contentViewModel.state.hasSearchResults}"
                     tools:visibility="visible" />
 
                 <com.google.android.material.card.MaterialCardView
@@ -54,6 +55,7 @@
                     android:layout_marginTop="@dimen/search_margin_s"
                     android:padding="@dimen/search_padding_default"
                     app:cardCornerRadius="@dimen/search_corner_radius_card_view"
+                    bind:isVisible="@{contentViewModel.state.hasSearchResults}"
                     tools:visibility="visible">
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -63,6 +65,7 @@
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         bind:data="@{Mappers.toSearchResultCoinsUI(contentViewModel.state.searchCoinsResult)}"
                         bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onSearchResultClicked(item.id)}"
+                        bind:isVisible="@{contentViewModel.state.hasSearchResults}"
                         tools:itemCount="8"
                         tools:listitem="@layout/search_item_search_coin"
                         tools:visibility="visible" />
@@ -75,8 +78,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/search_margin_xl"
                     android:layout_marginBottom="@dimen/search_margin_s"
-                    android:text="Today's Top Movers"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+                    android:text="@string/search_label_top_movers_for_today"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                    bind:isVisible="@{contentViewModel.state.hasTrendingResults}"
+                    tools:visibility="visible" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_view_top_trending_coins"
@@ -84,7 +89,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/search_margin_s"
                     android:padding="@dimen/search_padding_default"
-                    app:cardCornerRadius="@dimen/search_corner_radius_card_view">
+                    app:cardCornerRadius="@dimen/search_corner_radius_card_view"
+                    bind:isVisible="@{contentViewModel.state.hasTrendingResults}"
+                    tools:visibility="visible">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_view_top_trending_coins"
@@ -94,8 +101,10 @@
                         app:spanCount="@integer/search_grid_columns"
                         bind:data="@{Mappers.toTrendingCoinsUI(contentViewModel.state.trendingCoinsResult)}"
                         bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onTrendingCoinClicked(item.id)}"
+                        bind:isVisible="@{contentViewModel.state.hasTrendingResults}"
                         tools:itemCount="8"
-                        tools:listitem="@layout/search_item_trending_coin" />
+                        tools:listitem="@layout/search_item_trending_coin"
+                        tools:visibility="visible" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -105,8 +114,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/search_margin_xl"
                     android:layout_marginBottom="@dimen/search_margin_s"
-                    android:text="Recently Viewed"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+                    android:text="@string/search_label_recently_viewed"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                    bind:isVisible="@{contentViewModel.state.hasRecentlyViewedResults}"
+                    tools:visibility="visible" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view_recently_viewed_coins"
@@ -116,9 +127,11 @@
                     android:orientation="horizontal"
                     bind:data="@{Mappers.toRecentViewedCoinsUI(contentViewModel.state.recentViewedCoinsResult)}"
                     bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onRecentViewedCoinClicked(item.id)}"
+                    bind:isVisible="@{contentViewModel.state.hasRecentlyViewedResults}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="4"
-                    tools:listitem="@layout/search_item_recent_viewed_coin" />
+                    tools:listitem="@layout/search_item_recent_viewed_coin"
+                    tools:visibility="visible" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
