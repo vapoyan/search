@@ -19,7 +19,7 @@ internal class GetRecentViewedCoinsUseCase @Inject constructor(
     private val repository: SearchRepository,
 ) {
     operator fun invoke(): Flow<Resource<RecentViewedResult>> = flow {
-        try {
+        try { // TODO: Change to runCatching
             Log.d(TAG, "Get Recent Viewed Coins Use Case")
             emit(Resource.Loading())
             val ids = preferences.getRecentViewedCoinIds()

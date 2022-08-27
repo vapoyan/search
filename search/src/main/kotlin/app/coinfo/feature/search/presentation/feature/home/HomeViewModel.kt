@@ -11,6 +11,8 @@ import app.coinfo.feature.search.domain.usecase.GetRecentViewedCoinsUseCase
 import app.coinfo.feature.search.domain.usecase.GetTrendingCoinsUseCase
 import app.coinfo.feature.search.domain.usecase.SearchUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,6 +24,8 @@ internal class HomeViewModel @Inject constructor(
     private val searchUseCase: SearchUseCase,
     private val preferences: SearchPreferences
 ) : ViewModel() {
+
+    private var searchJob: Job? = null
 
     private val initialState = HomeState()
 
@@ -46,15 +50,23 @@ internal class HomeViewModel @Inject constructor(
     }
 
     fun onQueryTextSubmit(query: String?) {
-        query?.let { getSearchedCoins(it) }
+        searchJob?.cancel()
+        searchJob = viewModelScope.launch {
+            delay(WAIT_TIMEOUT_BEFORE_SEARCH)
+            query?.let { getSearchedCoins(it) }
+        }
     }
 
     fun onQueryTextChange(query: String?) {
-        query?.let {
-            if (it.isNotBlank() && it.isNotEmpty()) {
-                getSearchedCoins(it)
-            } else {
-                _state.update { state -> state.copy(searchCoinsResult = SearchResult(emptyList())) }
+        searchJob?.cancel()
+        searchJob = viewModelScope.launch {
+            delay(WAIT_TIMEOUT_BEFORE_SEARCH)
+            query?.let {
+                if (it.isNotBlank() && it.isNotEmpty()) {
+                    getSearchedCoins(it)
+                } else {
+                    _state.update { state -> state.copy(searchCoinsResult = SearchResult(emptyList())) }
+                }
             }
         }
     }
@@ -65,9 +77,7 @@ internal class HomeViewModel @Inject constructor(
                 is Resource.Success -> {
                     _state.update {
                         it.copy(
-                            searchCoinsResult = result.data ?: SearchResult(
-                                emptyList()
-                            )
+                            searchCoinsResult = result.data ?: SearchResult(emptyList())
                         )
                     }
                 }
@@ -121,5 +131,9 @@ internal class HomeViewModel @Inject constructor(
                 }
             }
         }.launchIn(viewModelScope)
+    }
+
+    companion object {
+        private const val WAIT_TIMEOUT_BEFORE_SEARCH = 500L
     }
 }

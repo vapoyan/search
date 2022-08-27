@@ -26,7 +26,7 @@ internal class GetTrendingCoinsUseCase @Inject constructor(
     private val repository: SearchRepository
 ) {
     operator fun invoke(): Flow<Resource<TrendingResult>> = flow {
-        try {
+        try { // TODO: Change to runCatching
             emit(Resource.Loading())
             val trendingCoins = repository.trending()
             val coin = repository.getPrice(trendingCoins.coins.map { it.item.id })
