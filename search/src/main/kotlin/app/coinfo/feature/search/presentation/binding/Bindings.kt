@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.TypedValue
 import android.widget.ImageView
 import androidx.annotation.AttrRes
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import app.coinfo.feature.search.R
@@ -15,6 +16,14 @@ import com.google.android.material.textview.MaterialTextView
 
 
 internal object Bindings {
+
+    internal interface OnQueryTextSubmit {
+        fun onQueryTextSubmit(string: String?)
+    }
+
+    internal interface OnQueryTextChange {
+        fun onQueryTextChange(string: String?)
+    }
 
     @JvmStatic
     @BindingAdapter(value = ["bind:onRecyclerViewItemClicked"])
@@ -30,6 +39,30 @@ internal object Bindings {
     internal fun bindRecyclerViewData(view: RecyclerView, data: RecyclerViewData) {
         val adapter = getOrCreateAdapter(view, data.layoutId)
         adapter.submitList(data.data)
+    }
+
+    @JvmStatic
+    @BindingAdapter(
+        value = ["bind:onQueryTextSubmit", "bind:onQueryTextChange"],
+        requireAll = false
+    )
+    internal fun setOnQueryTextChangeListener(
+        searchView: SearchView,
+        onQueryTextSubmit: OnQueryTextSubmit,
+        onQueryTextChange: OnQueryTextChange
+    ) {
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                onQueryTextSubmit.onQueryTextSubmit(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                onQueryTextChange.onQueryTextChange(newText)
+                return true
+            }
+        })
     }
 
 

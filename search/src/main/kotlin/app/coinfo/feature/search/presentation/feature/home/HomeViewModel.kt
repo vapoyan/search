@@ -31,7 +31,6 @@ internal class HomeViewModel @Inject constructor(
     init {
         getTrendingCoins()
         getRecentViewedCoins()
-        getSearchedCoins()
     }
 
     fun onTrendingCoinClicked(id: String) {
@@ -46,8 +45,16 @@ internal class HomeViewModel @Inject constructor(
         viewModelScope.launch { preferences.addRecentViewedCoinId(id) }
     }
 
-    private fun getSearchedCoins() {
-        searchUseCase("x").onEach { result ->
+    fun onQueryTextSubmit(query: String?) {
+        query?.let { getSearchedCoins(it) }
+    }
+
+    fun onQueryTextChange(query: String?) {
+        query?.let { getSearchedCoins(it) }
+    }
+
+    private fun getSearchedCoins(query: String) {
+        searchUseCase(query).onEach { result ->
             when (result) {
                 is Resource.Success -> {
                     _state.update {

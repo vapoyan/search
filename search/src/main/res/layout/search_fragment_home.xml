@@ -2,6 +2,7 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -48,6 +49,8 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:focusable="true"
+                    bind:onQueryTextChange="@{(query) -> viewModel.onQueryTextChange(query)}"
+                    bind:onQueryTextSubmit="@{(query) -> viewModel.onQueryTextSubmit(query)}"
                     app:iconifiedByDefault="false"
                     app:queryBackground="@null"
                     app:queryHint="Search asset ..."
