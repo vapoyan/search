@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/search_margin_xl"
                     android:layout_marginBottom="@dimen/search_margin_s"
-                    android:text="@string/search_label_search_result"
+                    android:text="@{@string/search_label_search_result(contentViewModel.state.searchCoinsResult.coins.size)}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                     bind:isVisible="@{contentViewModel.state.hasSearchResults}"
                     tools:visibility="visible" />

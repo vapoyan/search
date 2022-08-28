@@ -53,7 +53,7 @@
                     bind:onQueryTextSubmit="@{(query) -> viewModel.onQueryTextSubmit(query)}"
                     app:iconifiedByDefault="false"
                     app:queryBackground="@null"
-                    app:queryHint="Search asset ..."
+                    app:queryHint="@string/search_hint_search_assets"
                     app:searchIcon="@drawable/search_ic_search" />
 
             </com.google.android.material.card.MaterialCardView>
