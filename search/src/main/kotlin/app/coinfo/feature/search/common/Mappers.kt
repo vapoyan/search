@@ -38,17 +38,17 @@ internal object Mappers {
         id = id,
         name = name,
         symbol = symbol,
-        price = currentPrice,
+        price = currentPrice ?: 0.0,
         imageUrl = image,
-        priceChangePercentage24h = priceChangePercentage24h
+        priceChangePercentage24h = priceChangePercentage24h ?: 0.0
     )
 
     private fun MarketDataDto.toSearchResultCoin() = SearchCoin(
         id = id,
         name = name,
         symbol = symbol,
-        price = currentPrice,
+        price = currentPrice ?: 0.0,
         imageUrl = image,
-        priceChangePercentage24h = priceChangePercentage24h
+        priceChangePercentage24h = priceChangePercentage24h ?: 0.0
     )
 }

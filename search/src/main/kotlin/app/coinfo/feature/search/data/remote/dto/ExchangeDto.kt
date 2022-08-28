@@ -8,7 +8,7 @@ internal data class ExchangeDto(
     @SerializedName("large")
     val large: String,
     @SerializedName("market_type")
-    val marketType: String,
+    val marketType: String? = null,
     @SerializedName("name")
     val name: String,
     @SerializedName("thumb")

@@ -90,7 +90,7 @@ internal class HomeViewModel @Inject constructor(
                 is Resource.Failure -> {
                     _state.update {
                         it.copy(
-                            searchCoinsResult = SearchResult(emptyList()),
+                            searchCoinsResult = result.data ?: SearchResult(emptyList()),
                             error = result.message
                         )
                     }

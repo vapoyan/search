@@ -8,7 +8,7 @@ internal data class CoinDto(
     @SerializedName("large")
     val large: String,
     @SerializedName("market_cap_rank")
-    val marketCapRank: Int,
+    val marketCapRank: Int? = null,
     @SerializedName("name")
     val name: String,
     @SerializedName("symbol")
