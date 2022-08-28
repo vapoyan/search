@@ -71,6 +71,18 @@ internal object Bindings {
     }
 
     @JvmStatic
+    @BindingAdapter("bind:errorMessage")
+    internal fun showErrorMessageAndHideViewAfterTimeout(view: MaterialTextView, message: String?) {
+        message?.let {
+            if (it.isNotEmpty() && it.isNotBlank()) {
+                view.text = it
+                view.visibility = View.VISIBLE
+                view.postDelayed({ view.visibility = View.GONE }, 3000)
+            }
+        }
+    }
+
+    @JvmStatic
     @BindingAdapter("bind:isVisible")
     internal fun setViewVisibility(view: View, isVisible: Boolean = false) {
         view.isVisible = isVisible

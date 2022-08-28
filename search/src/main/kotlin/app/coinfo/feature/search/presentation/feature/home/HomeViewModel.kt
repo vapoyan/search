@@ -65,7 +65,12 @@ internal class HomeViewModel @Inject constructor(
                 if (it.isNotBlank() && it.isNotEmpty()) {
                     getSearchedCoins(it)
                 } else {
-                    _state.update { state -> state.copy(searchCoinsResult = SearchResult(emptyList())) }
+                    _state.update { state ->
+                        state.copy(
+                            searchCoinsResult = SearchResult(emptyList()),
+                            error = null
+                        )
+                    }
                 }
             }
         }
@@ -77,12 +82,18 @@ internal class HomeViewModel @Inject constructor(
                 is Resource.Success -> {
                     _state.update {
                         it.copy(
-                            searchCoinsResult = result.data ?: SearchResult(emptyList())
+                            searchCoinsResult = result.data ?: SearchResult(emptyList()),
+                            error = null
                         )
                     }
                 }
                 is Resource.Failure -> {
-                    _state.update { it.copy(error = result.message ?: "Error occurs while search") }
+                    _state.update {
+                        it.copy(
+                            searchCoinsResult = SearchResult(emptyList()),
+                            error = result.message
+                        )
+                    }
                 }
                 is Resource.Loading -> {
                     _state.update { it.copy(isLoading = true) }
@@ -97,9 +108,8 @@ internal class HomeViewModel @Inject constructor(
                 is Resource.Success -> {
                     _state.update {
                         it.copy(
-                            trendingCoinsResult = result.data ?: TrendingResult(
-                                emptyList()
-                            )
+                            trendingCoinsResult = result.data ?: TrendingResult(emptyList()),
+                            error = ""
                         )
                     }
                 }
@@ -119,7 +129,9 @@ internal class HomeViewModel @Inject constructor(
                 is Resource.Success -> {
                     _state.update {
                         it.copy(
-                            recentViewedCoinsResult = result.data ?: RecentViewedResult(emptyList())
+                            recentViewedCoinsResult = result.data
+                                ?: RecentViewedResult(emptyList()),
+                            error = ""
                         )
                     }
                 }

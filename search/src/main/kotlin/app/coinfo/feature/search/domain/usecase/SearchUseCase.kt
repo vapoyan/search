@@ -28,7 +28,12 @@ internal class SearchUseCase @Inject constructor(
                 val result = searchCoinsDetails.toSearchResult()
                 emit(Resource.Success(result))
             } else {
-                emit(Resource.Success(SearchResult(emptyList())))
+                emit(
+                    Resource.Failure(
+                        message = "No results found for \"$query\"",
+                        data = SearchResult(emptyList())
+                    )
+                )
             }
         } catch (e: HttpException) {
             Log.e(TAG, "Error occurs while searching the coins", e)

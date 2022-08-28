@@ -16,10 +16,33 @@
         android:layout_height="match_parent"
         tools:context=".presentation.feature.home.HomeFragment">
 
-        <include
-            android:id="@+id/include_search_fragment_home_content"
-            layout="@layout/search_fragment_home_content"
-            app:contentViewModel="@{viewModel}" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_error_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorError"
+                android:backgroundTint="?attr/colorError"
+                android:gravity="center"
+                android:padding="@dimen/search_padding_s"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                android:textColor="?attr/colorOnError"
+                android:visibility="gone"
+                bind:errorMessage="@{viewModel.state.error}"
+                tools:text="No internet connection, please check internet connection and retry."
+                tools:visibility="visible" />
+
+            <include
+                android:id="@+id/include_search_fragment_home_content"
+                layout="@layout/search_fragment_home_content"
+                app:contentViewModel="@{viewModel}" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/toolbar"

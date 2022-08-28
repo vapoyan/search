@@ -9,7 +9,7 @@ internal data class HomeState(
     val trendingCoinsResult: TrendingResult = TrendingResult(emptyList()),
     val recentViewedCoinsResult: RecentViewedResult = RecentViewedResult(emptyList()),
     val searchCoinsResult: SearchResult = SearchResult(emptyList()),
-    val error: String = ""
+    val error: String? = null
 ) {
     val hasSearchResults: Boolean
         get() = searchCoinsResult.coins.isNotEmpty()
