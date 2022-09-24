@@ -28,4 +28,9 @@
 
     <dimen name="search_size_recent_viewed_card_view_width">156dp</dimen>
 
+    <dimen name="search_placeholder_search_coin_name_width">96dp</dimen>
+    <dimen name="search_placeholder_search_coin_symbol_width">46dp</dimen>
+    <dimen name="search_placeholder_search_coin_price_width">32dp</dimen>
+    <dimen name="search_placeholder_search_coin_change_percentage_width">16dp</dimen>
+
 </resources>

@@ -3,6 +3,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -59,6 +60,40 @@
                     bind:isVisible="@{contentViewModel.state.hasSearchResults}"
                     tools:visibility="visible">
 
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmer_frame_layout_search_results"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        bind:isShimmerVisible="@{contentViewModel.state.isSearchLoading}"
+                        shimmer:duration="@integer/search_shimmer_animation_duration"
+                        tools:visibility="gone">
+
+                        <!-- Adding 7 rows of placeholders -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <include layout="@layout/search_item_search_coin_placeholder" />
+
+                            <include layout="@layout/search_item_search_coin_placeholder" />
+
+                            <include layout="@layout/search_item_search_coin_placeholder" />
+
+                            <include layout="@layout/search_item_search_coin_placeholder" />
+
+                            <include layout="@layout/search_item_search_coin_placeholder" />
+
+                            <include layout="@layout/search_item_search_coin_placeholder" />
+
+                            <include layout="@layout/search_item_search_coin_placeholder" />
+
+                            <include layout="@layout/search_item_search_coin_placeholder" />
+                        </LinearLayout>
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_view_search_results"
                         android:layout_width="match_parent"
@@ -66,7 +101,7 @@
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         bind:data="@{Mappers.toSearchResultCoinsUI(contentViewModel.state.searchCoinsResult)}"
                         bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onSearchResultClicked(item.id)}"
-                        bind:isVisible="@{contentViewModel.state.hasSearchResults}"
+                        bind:isVisible="@{contentViewModel.state.hasSearchResults &amp;&amp; !contentViewModel.state.isSearchLoading}"
                         tools:itemCount="8"
                         tools:listitem="@layout/search_item_search_coin"
                         tools:visibility="visible" />

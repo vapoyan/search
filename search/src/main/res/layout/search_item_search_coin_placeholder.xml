@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/search_padding_default">
+
+        <ImageView
+            android:id="@+id/image_view_search_icon_logo"
+            android:layout_width="@dimen/search_size_search_result_logo_width"
+            android:layout_height="@dimen/search_size_search_result_logo_height"
+            android:background="?attr/colorPrimaryVariant"
+            android:focusable="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_search_coin_name"
+            android:layout_width="@dimen/search_placeholder_search_coin_name_width"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/search_margin_default"
+            android:layout_marginRight="@dimen/search_margin_s"
+            android:background="?attr/colorPrimaryVariant"
+            android:ellipsize="end"
+            android:focusable="false"
+            app:layout_constraintBottom_toTopOf="@+id/text_view_search_coin_symbol"
+            app:layout_constraintStart_toEndOf="@+id/image_view_search_icon_logo"
+            app:layout_constraintTop_toTopOf="@+id/image_view_search_icon_logo" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_search_coin_symbol"
+            android:layout_width="@dimen/search_placeholder_search_coin_symbol_width"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/search_margin_default"
+            android:layout_marginRight="@dimen/search_margin_xl"
+            android:background="?attr/colorPrimaryVariant"
+            android:ellipsize="end"
+            android:focusable="false"
+            app:layout_constraintBottom_toBottomOf="@+id/image_view_search_icon_logo"
+            app:layout_constraintStart_toEndOf="@+id/image_view_search_icon_logo"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_search_coin_name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_search_coin_price"
+            android:layout_width="@dimen/search_placeholder_search_coin_price_width"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/search_margin_s"
+            android:background="?attr/colorPrimaryVariant"
+            android:focusable="false"
+            android:gravity="end"
+            app:layout_constraintBottom_toTopOf="@+id/linear_layout_search_coin_price_change_percentage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/image_view_search_icon_logo" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_search_coin_price_change_percentage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/search_margin_s"
+            android:focusable="false"
+            android:gravity="end|center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/image_view_search_icon_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_search_coin_change_percentage"
+                android:layout_width="@dimen/search_placeholder_search_coin_change_percentage_width"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimaryVariant"
+                android:focusable="false"
+                android:gravity="end" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.65" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

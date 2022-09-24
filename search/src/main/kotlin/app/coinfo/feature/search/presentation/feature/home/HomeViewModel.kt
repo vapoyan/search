@@ -68,6 +68,7 @@ internal class HomeViewModel @Inject constructor(
                     _state.update { state ->
                         state.copy(
                             searchCoinsResult = SearchResult(emptyList()),
+                            isSearchLoading = false,
                             error = null
                         )
                     }
@@ -83,6 +84,7 @@ internal class HomeViewModel @Inject constructor(
                     _state.update {
                         it.copy(
                             searchCoinsResult = result.data ?: SearchResult(emptyList()),
+                            isSearchLoading = false,
                             error = null
                         )
                     }
@@ -91,12 +93,13 @@ internal class HomeViewModel @Inject constructor(
                     _state.update {
                         it.copy(
                             searchCoinsResult = result.data ?: SearchResult(emptyList()),
+                            isSearchLoading = false,
                             error = result.message
                         )
                     }
                 }
                 is Resource.Loading -> {
-                    _state.update { it.copy(isLoading = true) }
+                    _state.update { it.copy(isSearchLoading = true) }
                 }
             }
         }.launchIn(viewModelScope)

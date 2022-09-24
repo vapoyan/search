@@ -14,6 +14,7 @@ import app.coinfo.feature.search.presentation.adapter.RecyclerViewAdapter
 import app.coinfo.feature.search.presentation.adapter.RecyclerViewData
 import app.coinfo.feature.search.presentation.adapter.RecyclerViewItemClickListener
 import com.bumptech.glide.Glide
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.textview.MaterialTextView
 
 
@@ -86,6 +87,15 @@ internal object Bindings {
     @BindingAdapter("bind:isVisible")
     internal fun setViewVisibility(view: View, isVisible: Boolean = false) {
         view.isVisible = isVisible
+    }
+
+    @JvmStatic
+    @BindingAdapter("binding:isShimmerVisible")
+    internal fun setShimmerViewAnimationAndVisibility(
+        view: ShimmerFrameLayout, isVisible: Boolean = false
+    ) {
+        view.isVisible = isVisible
+        if (isVisible) view.startShimmer() else view.stopShimmer()
     }
 
     @JvmStatic
