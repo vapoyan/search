@@ -7,6 +7,7 @@ import app.coinfo.feature.search.domain.model.TrendingResult
 internal data class HomeState(
     val isLoading: Boolean = false,
     val trendingCoinsResult: TrendingResult = TrendingResult(emptyList()),
+    val isTrendingCoinsLoading: Boolean = false,
     val recentViewedCoinsResult: RecentViewedResult = RecentViewedResult(emptyList()),
     val searchCoinsResult: SearchResult = SearchResult(emptyList()),
     val isSearchLoading: Boolean = false,

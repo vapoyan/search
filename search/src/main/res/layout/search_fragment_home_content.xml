@@ -57,7 +57,7 @@
                     android:layout_marginTop="@dimen/search_margin_s"
                     android:padding="@dimen/search_padding_default"
                     app:cardCornerRadius="@dimen/search_corner_radius_card_view"
-                    bind:isVisible="@{contentViewModel.state.hasSearchResults}"
+                    bind:isVisible="@{contentViewModel.state.hasSearchResults || contentViewModel.state.isSearchLoading}"
                     tools:visibility="visible">
 
                     <com.facebook.shimmer.ShimmerFrameLayout
@@ -69,26 +69,18 @@
                         shimmer:duration="@integer/search_shimmer_animation_duration"
                         tools:visibility="gone">
 
-                        <!-- Adding 7 rows of placeholders -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <include layout="@layout/search_item_search_coin_placeholder" />
-
                             <include layout="@layout/search_item_search_coin_placeholder" />
-
                             <include layout="@layout/search_item_search_coin_placeholder" />
-
                             <include layout="@layout/search_item_search_coin_placeholder" />
-
                             <include layout="@layout/search_item_search_coin_placeholder" />
-
                             <include layout="@layout/search_item_search_coin_placeholder" />
-
                             <include layout="@layout/search_item_search_coin_placeholder" />
-
                             <include layout="@layout/search_item_search_coin_placeholder" />
                         </LinearLayout>
 
@@ -126,8 +118,68 @@
                     android:layout_marginTop="@dimen/search_margin_s"
                     android:padding="@dimen/search_padding_default"
                     app:cardCornerRadius="@dimen/search_corner_radius_card_view"
-                    bind:isVisible="@{contentViewModel.state.hasTrendingResults}"
+                    bind:isVisible="@{contentViewModel.state.hasTrendingResults || contentViewModel.state.isTrendingCoinsLoading}"
                     tools:visibility="visible">
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmer_frame_layout_top_trending_coins"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        bind:isShimmerVisible="@{contentViewModel.state.isTrendingCoinsLoading}"
+                        shimmer:duration="@integer/search_shimmer_animation_duration"
+                        tools:visibility="gone">
+
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:columnCount="@integer/search_grid_columns"
+                            android:rowCount="@integer/search_placeholder_trending_coin_grid_layout_row_count">
+
+                            <include
+                                layout="@layout/search_item_trending_coin_placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="center" />
+
+                            <include
+                                layout="@layout/search_item_trending_coin_placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="center" />
+
+                            <include
+                                layout="@layout/search_item_trending_coin_placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="center" />
+
+                            <include
+                                layout="@layout/search_item_trending_coin_placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="center" />
+
+                            <include
+                                layout="@layout/search_item_trending_coin_placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="center" />
+
+                            <include
+                                layout="@layout/search_item_trending_coin_placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="center" />
+                        </GridLayout>
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_view_top_trending_coins"
@@ -137,7 +189,7 @@
                         app:spanCount="@integer/search_grid_columns"
                         bind:data="@{Mappers.toTrendingCoinsUI(contentViewModel.state.trendingCoinsResult)}"
                         bind:onRecyclerViewItemClicked="@{(item) -> contentViewModel.onTrendingCoinClicked(item.id)}"
-                        bind:isVisible="@{contentViewModel.state.hasTrendingResults}"
+                        bind:isVisible="@{contentViewModel.state.hasTrendingResults &amp;&amp; !contentViewModel.state.isTrendingCoinsLoading}"
                         tools:itemCount="8"
                         tools:listitem="@layout/search_item_trending_coin"
                         tools:visibility="visible" />

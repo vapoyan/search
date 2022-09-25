@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/search_padding_s">
+
+        <ImageView
+            android:id="@+id/image_view_trending_coin_logo"
+            android:layout_width="@dimen/search_size_trending_coin_logo_width"
+            android:layout_height="@dimen/search_size_trending_coin_logo_height"
+            android:background="?attr/colorPrimaryVariant"
+            app:layout_constraintBottom_toTopOf="@+id/text_view_trending_coin_symbol"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_trending_coin_symbol"
+            android:layout_width="@dimen/search_placeholder_trending_coin_symbol_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/search_margin_s"
+            android:background="?attr/colorPrimaryVariant"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            app:layout_constraintBottom_toTopOf="@+id/linear_layout_price_change"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_view_trending_coin_logo" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_price_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_trending_coin_symbol">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_trending_coin_percentage_change"
+                android:layout_width="@dimen/search_placeholder_trending_coin_percentage_change_width"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimaryVariant" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -33,4 +33,7 @@
     <dimen name="search_placeholder_search_coin_price_width">32dp</dimen>
     <dimen name="search_placeholder_search_coin_change_percentage_width">16dp</dimen>
 
+    <dimen name="search_placeholder_trending_coin_symbol_width">32dp</dimen>
+    <dimen name="search_placeholder_trending_coin_percentage_change_width">16dp</dimen>
+
 </resources>

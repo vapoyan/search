@@ -112,15 +112,22 @@ internal class HomeViewModel @Inject constructor(
                     _state.update {
                         it.copy(
                             trendingCoinsResult = result.data ?: TrendingResult(emptyList()),
-                            error = ""
+                            isTrendingCoinsLoading = false,
+                            error = null
                         )
                     }
                 }
                 is Resource.Failure -> {
-                    _state.update { it.copy(error = result.message ?: "Error occurs while search") }
+                    _state.update {
+                        it.copy(
+                            trendingCoinsResult = result.data ?: TrendingResult(emptyList()),
+                            error = result.message ?: "Error occurs while search",
+                            isTrendingCoinsLoading = false
+                        )
+                    }
                 }
                 is Resource.Loading -> {
-                    _state.update { it.copy(isLoading = true) }
+                    _state.update { it.copy(isTrendingCoinsLoading = true) }
                 }
             }
         }.launchIn(viewModelScope)
@@ -134,7 +141,7 @@ internal class HomeViewModel @Inject constructor(
                         it.copy(
                             recentViewedCoinsResult = result.data
                                 ?: RecentViewedResult(emptyList()),
-                            error = ""
+                            error = null
                         )
                     }
                 }

@@ -4,4 +4,6 @@
     <integer name="search_grid_columns">4</integer>
     <integer name="search_max_one_line">1</integer>
     <integer name="search_shimmer_animation_duration">500</integer>
+
+    <integer name="search_placeholder_trending_coin_grid_layout_row_count">2</integer>
 </resources>
